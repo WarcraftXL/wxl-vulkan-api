@@ -18,9 +18,9 @@
 // Shaders\Vertex\vs_3_0\CDiffuse_T1.bls permutation 1: lit, no local lights, no skinning, shadow
 // tier 0. Effect(Particle) in shaders\Effects\Particle.wfx pairs it with Combiners_Mod;
 // CParticleEmitter2::RenderParticles picks it for an emitter with the lit bit, with vertex format 4
-// PNCT. Translated line for line from the reconstruction in
-// 3.Tools\bls_tools\out\hlsl\CDiffuse_T1_p1.hlsl, which fxc compiles back to the shipped token
-// stream byte for byte; the contract is 3.Tools\bls_tools\out\m2_login_shader_contracts.md.
+// PNCT. Translated line for line from
+// a reconstructed HLSL source (not part of this repository), which fxc compiles back to the shipped token
+// stream byte for byte.
 //
 // The registers it reads, and which engine setter fills each (all vertex target 0, slot 70):
 //

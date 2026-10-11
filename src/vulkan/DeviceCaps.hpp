@@ -20,8 +20,8 @@
 
 #include <cstdint>
 
-// The device was a Vulkan 1.0 one with six core features (src/vulkan/context/Logical.cpp). Since 2026-10-11
-// (WXL_VK_CAPS, default on) the instance asks for the loader's version up to 1.2, the device is created at
+// The device was a Vulkan 1.0 one with six core features (src/vulkan/context/Logical.cpp). With
+// WXL_VK_CAPS (default on) the instance asks for the loader's version up to 1.2, the device is created at
 // min(that, the adapter's), and the optional features below are enabled whenever the adapter reports them --
 // each probed through vkGetPhysicalDeviceFeatures2 / Properties2 (core from 1.1), never assumed. None of them
 // changes what the device itself draws: the translated modules and the hand-written shaders are SPIR-V 1.0

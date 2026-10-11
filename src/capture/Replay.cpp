@@ -110,7 +110,7 @@ namespace
      * carries the world's coordinates (thousands of yards), and its float inverse is off by several
      * shadow texels once multiplied out. The draws form clip space from a view-space position and the
      * projection; undoing exactly those two, in double, lands within a hundredth of a texel
-     * (the wxl-lighting cascade probe measures 4.5 texels the first way, 0.003 this way).
+     * (a cascade probe measures 4.5 texels the first way, 0.003 this way).
      */
     bool SceneInverse(double t[16], double iv[16])
     {
@@ -375,7 +375,7 @@ namespace
             // -- what a cached map must never hold. The bone palette alone makes none: the world's animated
             // doodads (banners, lanterns, bushes) are skinned too, and a cached map holds them still, in the
             // pose they were captured in; kept out of the caches they were drawn from each frame's capture
-            // alone, and their shadows popped with the camera (2026-10-10).
+            // alone, and their shadows popped with the camera.
             const bool moving = dr.live != 0u;
             // WITH_DOODADS: a static M2 doodad's opaque draw joins the movers; its alpha-tested draws (a crown's
             // leaves, a card) stay out whatever the flags say.
@@ -389,7 +389,7 @@ namespace
     };
 
     /// Records one kept draw: its state bound (the wind at rest when asked), the draw. The capture's record is read as
-    /// it is (2026-10-11: no copy of it a draw and a view; the same commands as before).
+    /// it is (no copy of it a draw and a view).
     void Record(VkCommandBuffer cmd, const Draw& dr, bool alpha, const pipes::Pipe& p, const float m[16], bool windStill,
                 const WXL_VkReplayDesc& desc, Bound& b, WXL_VkReplayStats& st, const wxlvk::vk::loader::Device& d)
     {

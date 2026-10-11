@@ -426,7 +426,7 @@ namespace wxlvk::vk::pipelines::detail
         uint32_t     streams      = 1;     ///< vertex bindings the pipeline declares (1 + the Cmd's extraStreams)
         bool         bones        = false; ///< built from the vertex module's bone-palette variant: 64-row slice, palette in set 2
         bool         wind         = false; ///< built from the vertex module's tree-wind variant: set 3 and the push range
-        bool         gbuf         = false; ///< built from the modules' G-buffer variants (3.Tools/gbuffer): the pass's three extra attachments written
+        bool         gbuf         = false; ///< built from the modules' G-buffer variants (tools/gbuffer): the pass's three extra attachments written
         bool         gbufNull     = false; ///< a depth-writing pipeline on a G-buffer pass WITHOUT the variants: its pixels leave no record (Build)
         bool         constStream  = false; ///< a stride-0 binding at index `streams` feeds the attributes the layout lacks (State::constVb)
         bool         prewarmed    = false; ///< built at bring-up from the persisted key list, not yet checked against a draw (VerifyPrewarmed)

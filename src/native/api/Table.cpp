@@ -80,7 +80,7 @@ namespace wxlvk::native::render::detail
 
     int __cdecl ReplayWorldViews(const WXL_VkReplayViewsDesc* desc, WXL_VkReplayStats* stats)
     {
-        // Every field up to the stride is read: the struct was born whole (2026-10-11); a later field is read only when the
+        // Every field up to the stride is read: the struct was born whole; a later field is read only when the
         // caller's size covers it.
         if (!desc || desc->structSize < offsetof(WXL_VkReplayViewsDesc, viewStride) + sizeof desc->viewStride) return 0;
         return wxlvk::capture::ReplayViews(*desc, stats) ? 1 : 0;
@@ -214,7 +214,7 @@ namespace wxlvk::native::render::detail
         return wxlvk::native::render::depthhistory::Previous(*out) ? 1 : 0;
     }
 
-    // --- the optimisation pass's services (2026-10-11) ---------------------------------------------------------------
+    // --- the shared frame services ----------------------------------------------------------------------------------
 
     int __cdecl GetDeviceCaps(WXL_VkDeviceCaps* out)
     {

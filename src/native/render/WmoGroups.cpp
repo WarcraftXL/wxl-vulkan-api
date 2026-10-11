@@ -109,8 +109,8 @@ namespace
         g.now = saved;
     }
 
-    /// A WMO root's model key: CRC-32 of its inline file name lower-cased with '\\' separators (wxl-bake's model_key,
-    /// wxl.scene's modelKey); 0 without a name.
+    /// A WMO root's model key: CRC-32 of its inline file name lower-cased with '\\' separators (an offline tool can
+    /// compute it from the name alone); 0 without a name.
     uint32_t RootKey(const void* root)
     {
         if (!root) return 0;

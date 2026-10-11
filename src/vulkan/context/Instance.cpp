@@ -23,8 +23,8 @@ namespace wxlvk::vk::context::detail
     /**
      * Creates the instance, with the Win32 surface extensions and optionally validation.
      *
-     * The requested apiVersion was 1.0 until 2026-10-11: nothing the device draws uses a function past
-     * Vulkan 1.0 core plus VK_KHR_surface / VK_KHR_win32_surface / VK_KHR_swapchain. It is now the
+     * The device's own drawing needs only apiVersion 1.0: nothing it draws uses a function past
+     * Vulkan 1.0 core plus VK_KHR_surface / VK_KHR_win32_surface / VK_KHR_swapchain. It asks for the
      * loader's own version capped at 1.2 (Caps.cpp InstanceVersion), because the optional capabilities
      * the modules may use -- FP16, 16-bit storage, subgroups, multiview, the memory budget -- are probed
      * and enabled through 1.1 core (vkGetPhysicalDeviceFeatures2 and its chains). A loader without

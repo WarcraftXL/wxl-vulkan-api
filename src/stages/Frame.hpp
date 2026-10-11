@@ -33,7 +33,7 @@ namespace wxlvk::stages
         /// The world is drawn, the engine's own post-processing (glow, screen effects) included; the
         /// world text and the interface are not.
         BeforeUi,
-        /// (Appended 2026-10-11.) The engine's late liquid pass has returned: the water is drawn and its
+        /// (Appended.) The engine's late liquid pass has returned: the water is drawn and its
         /// depth written; the weather and the transparent models over the water follow (with the camera in
         /// no liquid). The scene is the world's as AfterOpaqueWorld saw it.
         AfterLiquids,

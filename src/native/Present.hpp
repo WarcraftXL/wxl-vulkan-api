@@ -502,7 +502,7 @@ namespace wxlvk::native::present
     /// depth, 2 a depth texture, 3 the shared offscreen depth; `format` receives its format.
     uint32_t PassDepthKind(VkFormat& format);
 
-    // --- the frame's GPU times (src/native/present/FrameGpu.cpp, 2026-10-11) -------------------------------------
+    // --- the frame's GPU times (src/native/present/FrameGpu.cpp) -------------------------------------------------
 
     /// The device's own shared work, timed in lanes beside the frame (wxl.vk.render GetFrameStats).
     enum GpuLane : uint32_t

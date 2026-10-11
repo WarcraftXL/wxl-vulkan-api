@@ -718,7 +718,7 @@ typedef struct WXL_VkCanopyVolumes
  * While a consumer asks for it (RequestGBuffer, counted), the opaque world's pass on the back buffer --
  * from the world scene pass's first draw to AfterOpaqueWorld -- carries three more colour attachments,
  * and every opaque or alpha-keyed world draw whose translated modules have a `gbuf` variant
- * (the offline translator's, the manifest's `gbuf` lines) writes them beside the frame:
+ * (tools/gbuffer, the manifest's `gbuf` lines) writes them beside the frame:
  *
  *   albedo  R8G8B8A8_UNORM     rgb: the textures' colour before any light and fog, in the engine's own
  *                              (gamma) space -- the colour the engine's light term multiplies. a: the

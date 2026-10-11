@@ -18,9 +18,9 @@
 // Shaders\Vertex\vs_3_0\Color_T1.bls permutation 0 (byte-identical to CDiffuse_T1 permutation 0 and
 // to Color_T1 2/4/6/8). Effect(Particle_Unlit) in shaders\Effects\Particle.wfx pairs it with
 // Combiners_Mod; CParticleEmitter2::RenderParticles picks it for an emitter without the lit bit, with
-// vertex format 8 PCT. Translated line for line from the reconstruction in
-// 3.Tools\bls_tools\out\hlsl\Color_T1_p0.hlsl, which fxc compiles back to the shipped token stream
-// byte for byte; the contract is 3.Tools\bls_tools\out\m2_login_shader_contracts.md.
+// vertex format 8 PCT. Translated line for line from
+// a reconstructed HLSL source (not part of this repository), which fxc compiles back to the shipped token stream
+// byte for byte.
 //
 // The registers it reads, and which engine setter fills each (all vertex target 0, slot 70):
 //

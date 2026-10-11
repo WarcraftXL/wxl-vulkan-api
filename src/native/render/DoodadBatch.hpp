@@ -16,7 +16,7 @@
 
 #pragma once
 
-// 2026-10-09 late: no longer the movers' rule (the unbatched doodads flickered); the bracket stays
+// Not the movers' rule (taking the unbatched doodads for movers made them flicker); the bracket stays
 // for the figures. A mover is a unit's draw, by its texture's folder: vulkan/pipelines/Record.cpp.
 
 // The M2 scene draws the map's placed doodads through its hardware-instanced batch path

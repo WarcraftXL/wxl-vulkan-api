@@ -72,8 +72,8 @@ namespace wxlvk::native::render
         g_api.RequestJitter        = &wxlvk::native::render::stages::RequestJitter;
         g_api.RequestGBuffer       = &RequestGBuffer;   // src/native/api/Table.cpp over src/native/present/
         g_api.GetGBuffer           = &GetGBuffer;
-        g_api.ReplayWorldViews     = &ReplayWorldViews;   // src/capture/Replay.cpp (wxl-vulkan-shadow's cubes)
-        // The optimisation pass (2026-10-11): src/native/api/Table.cpp over src/vulkan/context/Caps.cpp and src/native/render/.
+        g_api.ReplayWorldViews     = &ReplayWorldViews;   // src/capture/Replay.cpp (a local light's cube in one pass)
+        // The shared frame services: src/native/api/Table.cpp over src/vulkan/context/Caps.cpp and src/native/render/.
         g_api.GetDeviceCaps        = &GetDeviceCaps;
         g_api.GetMemoryBudget      = &GetMemoryBudget;
         g_api.MayKeepResident      = &MayKeepResident;

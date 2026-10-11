@@ -17,8 +17,8 @@
 
 // Shaders\Pixel\ps_3_0\Desaturate.bls, one permutation, 128 bytes; the image-mode shader
 // CSimpleTexture::Init picks for a desaturated UI texture, paired with UI:0 on format 8 like "UI".
-// The reconstruction in 3.Tools\bls_tools\out\hlsl\Desaturate_p0.hlsl compiles back to the shipped
-// token stream byte for byte.
+// Its reconstruction (a reconstructed HLSL source (not part of this repository)) compiles back to the
+// shipped token stream byte for byte.
 //
 // The shipped bytecode, whole:
 //

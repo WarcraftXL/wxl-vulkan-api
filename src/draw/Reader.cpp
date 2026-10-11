@@ -151,7 +151,7 @@ namespace
         uint32_t  generation = 0;                       ///< Resolver::shaderGeneration
         uint32_t  vconst     = Cmd::kVertexRegs;        ///< vertex stage: the slice class
         char      name[Cmd::kNameChars] = {};           ///< NUL-padded
-        /// translated::Resolve(name) for the vertex stage, taken once per memo (WriteMoverRow, 2026-10-11): the registry
+        /// translated::Resolve(name) for the vertex stage, taken once per memo (WriteMoverRow): the registry
         /// it answers from changes only at a shader create, which moves the generation and so refreshes the memo.
         const manifest::Record* resolved = nullptr;
         bool      resolvedKnown = false;

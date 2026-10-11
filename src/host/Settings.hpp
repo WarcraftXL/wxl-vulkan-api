@@ -20,7 +20,7 @@
 
 namespace wxlvk::host::settings
 {
-    /// The key wxl-host-client reads too: on, the native device makes itself importable for the host.
+    /// The key the host client extension reads too: on, the native device makes itself importable for the host.
     constexpr const char* kHostKey = "WXL_HOST";
 
     /// Whether WXL_HOST is on. Resolved once.

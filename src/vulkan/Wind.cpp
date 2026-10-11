@@ -122,7 +122,7 @@ namespace
 
         std::vector<Model> models;
         std::unordered_map<uint64_t, uint32_t> modelAt;
-        /// The last key Observe() resolved and its model (2026-10-11): a model's batches come in runs, and the hashed
+        /// The last key Observe() resolved and its model: a model's batches come in runs, and the hashed
         /// lookup was most of a watched draw's cost. Only Observe() changes modelAt, and it drops this on an erase.
         uint64_t lastKey = 0;
         uint32_t lastModel = 0;

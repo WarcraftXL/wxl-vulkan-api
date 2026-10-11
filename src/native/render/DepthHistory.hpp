@@ -59,7 +59,7 @@ namespace wxlvk::native::render::depthhistory
     /// Copies made since the start, for the stats line.
     uint64_t Copies();
 
-    /// A consumer asks for THIS frame's copy (wxl.vk.render RequestOpaqueDepth, 2026-10-11) or stops asking. Counted
+    /// A consumer asks for THIS frame's copy (wxl.vk.render RequestOpaqueDepth) or stops asking. Counted
     /// with Request's askers: the one copy runs while either kind wants it.
     void RequestOpaque(bool wanted);
 

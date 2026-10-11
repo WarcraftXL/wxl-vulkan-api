@@ -65,7 +65,7 @@ namespace
     class DepthHistory
     {
     public:
-        /// The previous depth's consumers and this frame's (GetOpaqueDepth, 2026-10-11) share the one copy.
+        /// The previous depth's consumers and this frame's (GetOpaqueDepth) share the one copy.
         bool Wanted() const { return requests_ > 0 || opaqueRequests_ > 0; }
 
         /// The copy of this frame, from the depth `io.depthView` holds now.

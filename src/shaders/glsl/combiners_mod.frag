@@ -17,9 +17,9 @@
 
 // Shaders\Pixel\ps_3_0\Combiners_Mod.bls permutation 4 (shadow tier 0, group 1, no texkill;
 // byte-identical to permutation 0). The pixel half of both Effect(Particle) and
-// Effect(Particle_Unlit), after Color_T1:0 or CDiffuse_T1:1. Translated from the reconstruction in
-// 3.Tools\bls_tools\out\hlsl\Combiners_Mod_p4.hlsl, which fxc compiles back to the shipped token
-// stream byte for byte; the contract is 3.Tools\bls_tools\out\m2_login_shader_contracts.md.
+// Effect(Particle_Unlit), after Color_T1:0 or CDiffuse_T1:1. Translated from
+// a reconstructed HLSL source (not part of this repository), which fxc compiles back to the shipped token
+// stream byte for byte.
 //
 // The shipped bytecode, whole:
 //

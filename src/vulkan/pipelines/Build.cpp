@@ -19,7 +19,7 @@
 namespace wxlvk::vk::pipelines::detail
 {
     /// "translated/<path>", or with ".gbuf" before its ".spv" for a G-buffer variant: the names follow
-    /// from the module's own, as the shadow variants' do (3.Tools/gbuffer).
+    /// from the module's own, as the shadow variants' do (tools/gbuffer).
     static void VariantPath(char* out, size_t size, const char* path, bool gbuf)
     {
         const size_t n = std::strlen(path);
@@ -179,7 +179,7 @@ namespace wxlvk::vk::pipelines::detail
         // With the vertex wind variant, the pixel module's own (the leaves' shimmer and light) when
         // it has one: it reads the varying only that variant writes.
         const bool windPix = windVar && pr && pr->wind[0] != '\0';
-        // The G-buffer variants (3.Tools/gbuffer, the manifest's `gbuf` lines) on a G-buffer pass class:
+        // The G-buffer variants (tools/gbuffer, the manifest's `gbuf` lines) on a G-buffer pass class:
         // an opaque world draw (the key's bit) whose vertex module -- in the variant chosen above: plain,
         // bones, wind, both -- and pixel module both have one takes them and writes the pass's three
         // extra attachments. Without both, the modules as they are, with those attachments masked off.
@@ -322,9 +322,9 @@ namespace wxlvk::vk::pipelines::detail
         // the pixel alone; its normal and light stay masked. A pipeline that writes no depth (a decal) masks
         // all three: the opaque surface under it keeps its record. (independentBlend makes the per-attachment
         // state legal; the device refuses the G-buffer without it.)
-        //   2026-10-11: the zeros are NOT guaranteed. Vulkan leaves an attachment the fragment shader has no output for
+        //   The zeros are NOT guaranteed. Vulkan leaves an attachment the fragment shader has no output for
         // undefined whatever the blend says, and the usual hardware simply skips the write: the albedo then keeps the
-        // record of whatever was drawn behind (a Goldshire house's wall relit as the terrain behind it). What tells the
+        // record of whatever was drawn behind (a house's wall relit as the terrain behind it). What tells the
         // consumers apart is the variants' depth tag (VkRenderApi.h WXL_VK_GBUFFER_TAG_*: the record's clip w in the
         // normal's w, which these pipelines leave masked); each such pipeline is named in the log once, and its draws
         // counted (gbufferNullDraws).

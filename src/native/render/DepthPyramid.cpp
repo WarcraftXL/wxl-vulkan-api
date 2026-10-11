@@ -76,7 +76,7 @@ namespace
     {
         const wxlvk::vk::context::Handles* h = wxlvk::vk::context::Get();
         if (!h || gpu::PointSampler() == VK_NULL_HANDLE) return false;
-        // rg32f storage needs shaderStorageImageExtendedFormats (enabled since 2026-10-11 when offered) and the format's
+        // rg32f storage needs shaderStorageImageExtendedFormats (enabled when offered) and the format's
         // storage bit; rgba32f storage is core.
         VkFormatProperties fp = {};
         h->iapi->GetPhysicalDeviceFormatProperties(h->physical, VK_FORMAT_R32G32_SFLOAT, &fp);

@@ -32,7 +32,7 @@
 //     full-screen passes inside the world pass (glow composite, screen effects), which resample an
 //     image already drawn, use 0 .. 1 and are left alone.
 //
-// It is on only while a consumer asks for it (wxl.vk.render RequestJitter: wxl-vulkan-pp's TAA); the
+// It is on only while a consumer asks for it (wxl.vk.render RequestJitter: a temporal resolve); the
 // counters let a log confirm the split.
 namespace wxlvk::native::render::jitter
 {

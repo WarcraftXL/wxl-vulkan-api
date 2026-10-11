@@ -159,7 +159,7 @@ namespace wxlvk::draw
         /// The other row the reader writes for EVERY draw: p[14].x is 1 for a UNIT's draw -- a skinned model
         /// (its vertex module takes bone weights) wearing a character's, a creature's or an item's texture,
         /// or a composited, nameless skin (vulkan/Wind.cpp UnitModel, UnnamedTexture) -- and 0 otherwise.
-        /// The G-buffer pixel variants (3.Tools/gbuffer) copy it into the class byte's bit 6
+        /// The G-buffer pixel variants (tools/gbuffer) copy it into the class byte's bit 6
         /// (WXL_VK_GBUFFER_MOVER_BIT), so a lighting consumer tells a unit from the world's models (no
         /// snow on a creature); the shadow capture takes its movers from it. Safe as the fog row is.
         /// p[14].y is 1 for a batch of an interior map object group (MOGP 0x2000 without 0x40: lit by the

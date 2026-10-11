@@ -20,7 +20,7 @@
 
 #include <cstdint>
 
-// 2026-10-10, the interior split. The engine draws every batch of a map object group from one of two leaves
+// The interior split. The engine draws every batch of a map object group from one of two leaves
 // (Wmo.ExtRender, Wmo.IntRender: __thiscall(root, group, flag)). While one runs, this bracket knows the group
 // and its MOGP flags: a group with 0x2000 (INTERIOR) and without 0x40 (EXTERIOR_LIT) is lit by the engine's
 // interior light (its baked vertex colours, the WMO's ambient), never by the sun's bands. The draw reader
@@ -28,11 +28,11 @@
 // into the albedo's bit 5 (WXL_VK_GBUFFER_INTERIOR_BIT), and hands the draw's own transform here once per
 // group, so the frame's interior groups can be handed over as boxes in view space (WXL_VkGBuffer::interiors):
 // the models and units standing inside, whose batched draws know nothing of the group, are told by them.
-// 2026-10-10 (pm): every INDOOR group (0x2000) hands its box over, the exterior-lit ones (0x40) flagged
+// Every INDOOR group (0x2000) hands its box over, the exterior-lit ones (0x40) flagged
 // (boundsMin[3] = WXL_VK_INTERIOR_EXTERIOR_LIT): their air is enclosed (the fog keeps the outdoor air out of a
 // mine's or a cave's exterior-lit tunnels), their light the sun's bands (the light relights them as exteriors).
-// 2026-10-11: each box also says which group it is (WXL_VkGBuffer::interiorGroups): the WMO's model key (its root's name)
-// and the group's index in the root's group array, so wxl-vulkan-light can keep an indoor light to its own groups and
+// Each box also says which group it is (WXL_VkGBuffer::interiorGroups): the WMO's model key (its root's name)
+// and the group's index in the root's group array, so a lighting consumer can keep an indoor light to its own groups and
 // those one portal away (no light from the floor below through the boards).
 namespace wxlvk::native::render::wmogroups
 {

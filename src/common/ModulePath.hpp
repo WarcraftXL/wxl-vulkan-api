@@ -55,7 +55,7 @@ namespace wxlvk::path
      * use is an immediate GetModuleFileNameA, the reference is released right after and nothing is
      * held. The core keeps extensions loaded for the life of the process anyway.
      *
-     * @return string dir : e.g. "...\\1.Clients\\Extensions\\wxl-vulkan-api\\", or "" on failure
+     * @return string dir : e.g. "...\\Extensions\\wxl-vulkan-api\\", or "" on failure
      */
     inline const std::string& Dir()
     {

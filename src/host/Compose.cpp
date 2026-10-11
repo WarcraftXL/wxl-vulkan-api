@@ -37,7 +37,7 @@ namespace wxlvk::host
         namespace present = wxlvk::native::present;
 
         constexpr const char* kWorldScenePoint = "Gx.WorldOnRender";
-        constexpr int         kPriority        = -10;   // outside post-process (0), inside wxl-host-client's camera (-20)
+        constexpr int         kPriority        = -10;   // outside post-process (0), inside the host client's camera (-20)
 
         using WorldSceneFn = void(__fastcall*)(void* worldFrame, void* edx);
         WorldSceneFn g_next = nullptr;

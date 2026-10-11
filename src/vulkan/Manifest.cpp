@@ -33,7 +33,7 @@ namespace
     using namespace wxlvk::vk::manifest;
 
     /// The most records the table holds. The client's archives hold 1578 byte-distinct records across
-    /// every archive; 2048 leaves room for Patch-4.MPQ and a re-run that splits a container.
+    /// every archive; 2048 leaves room for custom patch archives and a re-run that splits a container.
     constexpr uint32_t kMaxRecords = 2048;
 
     /// The most name entries. 3105 names in the archives (every Name:perm plus the bare Name of each
@@ -357,7 +357,7 @@ namespace
         }
         if (std::strncmp(t[0], "gbuf", 4) == 0)
         {
-            // The G-buffer variants (3.Tools/gbuffer): names that follow from the module's own, like the
+            // The G-buffer variants (tools/gbuffer): names that follow from the module's own, like the
             // shadow ones. A vertex record's four, a pixel record's `gbuf` and `gbufwind`. The line may
             // precede the `bones` / `wind` one it derives from: checked once the file is read (DropOrphanGBuf).
             if (n != 2) return false;
@@ -565,7 +565,7 @@ namespace wxlvk::vk::manifest
                             s.stats.skipped, s.stats.truncated,
                             s.stats.truncated == 1 ? "y" : "ies", kMaxRecords, kMaxNames);
         if (s.stats.gbuf)
-            wxl::ScriptMgr::Log(WXL_LOG_DEBUG, "vulkan: manifest: %u record(s) carry G-buffer variants (3.Tools/gbuffer)",
+            wxl::ScriptMgr::Log(WXL_LOG_DEBUG, "vulkan: manifest: %u record(s) carry G-buffer variants (tools/gbuffer)",
                                 s.stats.gbuf);
         return s.loaded;
     }

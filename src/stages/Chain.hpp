@@ -31,8 +31,7 @@
 //
 // Once per point per frame. Nothing runs, and nothing is touched, when no stage of the point is
 // wanted: the frame is then the same command for command as without the stages. The device has no
-// effect of its own here: anti-aliasing and ambient occlusion are wxl-vulkan-pp's stages, the lighting
-// wxl-lighting's.
+// effect of its own here: anti-aliasing, ambient occlusion and lighting are the consumers' stages.
 namespace wxlvk::stages::chain
 {
     /// The most stages there can be (the timing lanes past the points').

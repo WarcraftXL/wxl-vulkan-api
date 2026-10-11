@@ -29,7 +29,7 @@
 namespace wxlvk::capture
 {
     /// The most draws one frame keeps; the rest are counted and not replayed.
-    constexpr uint32_t kMaxDraws = 16384;   ///< with every frustum of the engine widened towards the sun (wxl-light), a frame holds more
+    constexpr uint32_t kMaxDraws = 16384;   ///< with every frustum of the engine widened towards the sun (a lighting consumer), a frame holds more
 
     /// One captured draw.
     struct Draw

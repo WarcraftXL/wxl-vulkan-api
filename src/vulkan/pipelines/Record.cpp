@@ -487,21 +487,21 @@ namespace
         // an item's texture, which vulkan/Wind.cpp reads off every file texture's path (a body's own skin
         // is composited and has none) -- and not a swaying tree. The bone
         // palette marks the rest of what moves (capture/Replay.cpp). The world's doodads, batched or
-        // not, are never movers: taking the unbatched ones for movers (the first rule of 2026-10-09)
+        // not, are never movers: taking the unbatched ones for movers (an earlier rule)
         // kept them out of the cached maps and their shadows flickered with the camera. A skinned model
         // whose texture has no name at all -- a character's composited skin -- is a unit's too: its body's
         // draws come before its hair's in the frame and were taken for the world's (a snow cap on the
-        // player's head, 2026-10-10).
+        // player's head).
         // The reader decided it (draw/Reader.cpp WriteMoverRow, the row the G-buffer variants read too).
         cd.live = c.pixelConst[Cmd::kMoverRow][0] > 0.5f && !entry->wind ? 1u : 0u;
         // The terrain's draws, for a replay that wants the ground alone (WXL_VK_REPLAY_TERRAIN_ONLY).
         cd.terrain = std::strncmp(c.vs, "Terrain", 7) == 0 ? 1u : 0u;
         // A static M2 doodad (the engine's M2 draws go through the Diffuse_ vertex family; vulkan/Wind.cpp reads them
-        // the same way): what a DYNAMIC_ONLY replay adds with WXL_VK_REPLAY_WITH_DOODADS (wxl-vulkan-shadow's units'
+        // the same way): what a DYNAMIC_ONLY replay adds with WXL_VK_REPLAY_WITH_DOODADS (a units' shadow
         // map: the small doodads the light bake leaves out cast their own silhouette round the player).
         cd.doodad = cd.live == 0u && !entry->wind && std::strncmp(c.vs, "Diffuse_", 8) == 0 ? 1u : 0u;
         // A map object's draw (every MapObj vertex family, exterior and interior groups): what a DYNAMIC_ONLY replay adds
-        // with WXL_VK_REPLAY_WITH_MAPOBJECTS (the units' map round the player: the roofs' real shadow, 2026-10-11).
+        // with WXL_VK_REPLAY_WITH_MAPOBJECTS (the units' map round the player: the roofs' real shadow).
         cd.mapobj = cd.live == 0u && !entry->wind && std::strncmp(c.vs, "MapObj", 6) == 0 ? 1u : 0u;
         // Its bound for the replay's culling: the units' and the M2 doodads' (and the swaying trees'); a map object's its
         // group's box (the engine's group renderer runs round this draw: native/render/WmoGroups.cpp); none for the terrain.

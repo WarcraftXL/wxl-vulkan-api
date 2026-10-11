@@ -69,7 +69,7 @@ namespace wxlvk::vk::wind
      * UnitModel(c) || UnnamedTexture(c.engineTex0): the reader's mover test (draw/Reader.cpp WriteMoverRow), answered
      * from the previous draw's when the model (its buffer, offset, stride and buffer id) and the texture (its CGxTex,
      * user argument and fill) are the same -- a model's batches come in runs. Both tests give the same answer for the
-     * same inputs, and the second call changes nothing UnitModel's first did not (2026-10-11).
+     * same inputs, and the second call changes nothing UnitModel's first did not.
      */
     bool MoverDraw(const wxlvk::draw::Cmd& c);
 

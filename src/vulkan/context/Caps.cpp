@@ -325,7 +325,7 @@ namespace wxlvk::vk::context::detail
         if (!settings::CapsWanted())
         {
             wxl::ScriptMgr::Log(WXL_LOG_INFO, "vulkan: device caps: %s is off: the Vulkan 1.0 device with its six core "
-                                              "features, as before 2026-10-11", settings::kCapsKey);
+                                              "features", settings::kCapsKey);
             return;
         }
         char loaderText[24], adapterText[24], deviceText[24], instanceText[24];

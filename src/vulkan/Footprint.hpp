@@ -24,8 +24,8 @@
 //
 // Wow.exe 12340 is a 32-bit process. The number that kills it is not how much memory it uses but how
 // much contiguous address space is left when the next large allocation arrives, and a Vulkan ICD is
-// a large, eager consumer of exactly that -- the user's own WarcraftXL.cfg records an unused Vulkan
-// driver costing about 230 MB.
+// a large, eager consumer of exactly that -- an unused Vulkan driver was measured costing about
+// 230 MB.
 //
 // How much there IS to spend was measured rather than assumed, because the figure usually quoted for
 // this client is wrong: `dumpbin /headers Wow.exe` reports PE characteristics 0x123, and 0x0020 of

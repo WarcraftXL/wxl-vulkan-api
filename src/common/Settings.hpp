@@ -302,7 +302,7 @@ namespace wxlvk::settings
 
     // --- WXL_VK_CAPS -----------------------------------------------------------------------------
 
-    /// The device's optional capabilities (src/vulkan/context/Caps.cpp, 2026-10-11): an instance and a device
+    /// The device's optional capabilities (src/vulkan/context/Caps.cpp): an instance and a device
     /// of Vulkan 1.1 or 1.2 when the loader and the adapter offer it, and the optional features the adapter
     /// reports enabled -- FP16 and INT8 arithmetic, 16-bit storage, the extended storage image formats,
     /// multiview, multi-draw indirect, VK_EXT_memory_budget, VK_EXT_shader_viewport_index_layer -- for the
@@ -313,7 +313,7 @@ namespace wxlvk::settings
 
     // --- WXL_VK_RECORD_SPLIT ----------------------------------------------------------------------
 
-    /// The draw's recording split into its phases (src/vulkan/pipelines/Record.cpp, 2026-10-11): the key and the
+    /// The draw's recording split into its phases (src/vulkan/pipelines/Record.cpp): the key and the
     /// pipeline, the textures / slice / descriptor set, the constants' copy, the binds, the shadow capture, the draw
     /// call -- each phase timed with the CPU's time-stamp counter (a few ns) and logged with the stats block as a cost
     /// per draw. Default off: the split adds six counter reads to every draw.

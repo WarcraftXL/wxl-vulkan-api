@@ -18,7 +18,7 @@
 
 #include <cstdint>
 
-// The client's DX9 shader bytecode is translated offline (3.Tools/bls_tools/translate.py) into one
+// The client's DX9 shader bytecode is translated offline (tools/bls_tools/translate.py) into one
 // SPIR-V module per byte-distinct record, and the DLL finds those modules through a manifest keyed by
 // the MD5 of the record's bytes (docs/architecture.md, "Shaders"). This file is the DLL's side of
 // that contract: it reads shaders/translated/manifest.txt next to the DLL once, into fixed tables,
@@ -53,7 +53,7 @@
 //   windbones <spv path>           vertex only, with `bones`: the same of the bone-palette variant
 //                                  (a pixel record's `wind` is its leaves' half: bound only with a
 //                                  vertex `wind` variant, which writes the varying it reads)
-//   gbuf <spv path>                the G-buffer variant (3.Tools/gbuffer): a vertex record's, with the
+//   gbuf <spv path>                the G-buffer variant (tools/gbuffer): a vertex record's, with the
 //                                  view normal and the light term as extra varyings, or a pixel
 //                                  record's, writing the albedo, normal and light attachments beside
 //                                  the colour: <spv>.gbuf.spv
@@ -155,7 +155,7 @@ namespace wxlvk::vk::manifest
         /// vertex: `shadowwind` / `shadowwindbones` -- `wind` / `windBones` with ".shadow.spv" for ".spv".
         bool     shadowWind;
         bool     shadowWindBones;
-        /// The G-buffer variants (3.Tools/gbuffer): a vertex record's `gbuf` / `gbufbones` / `gbufwind` /
+        /// The G-buffer variants (tools/gbuffer): a vertex record's `gbuf` / `gbufbones` / `gbufwind` /
         /// `gbufwindbones` (`spv` / `bones` / `wind` / `windBones` with ".gbuf.spv" for ".spv"), a pixel
         /// record's `gbuf` / `gbufwind` (`spv` / `wind` likewise). Flags: the names follow from the module's own.
         bool     gbuf;

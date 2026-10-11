@@ -50,8 +50,8 @@ list(APPEND WXL_EXT_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/third_party/vulkan-h
 # generation, and there is no glslc without the Vulkan SDK). Khronos publishes prebuilt binaries on the
 # glslang GitHub releases page; point WXL_VK_GLSLANG at one, or at the SDK's.
 #
-# The translated modules under shaders/translated/ are not built here: they are the output of the
-# offline translator (not part of this repository), versioned and deployed as they are.
+# The translated modules under shaders/translated/ are not built here and not versioned: they are made from
+# the user's own client by tools/translate_shaders.py, and deployed as they are when present.
 find_program(WXL_VK_GLSLANG
     NAMES glslang glslangValidator
     HINTS "${WXL_VK_GLSLANG_HINT}" ENV VULKAN_SDK
