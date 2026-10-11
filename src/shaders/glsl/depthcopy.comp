@@ -1,0 +1,21 @@
+#version 450
+// The opaque world's depth, copied as it is into an R32F image a later frame can sample
+// (src/post/DepthHistory.cpp): Vulkan 1.0 has no copy from a depth image into a colour one, so it
+// is this one-texel-per-thread pass.
+
+layout(local_size_x = 8, local_size_y = 8) in;
+
+layout(set = 0, binding = 0) uniform sampler2D uDepth;
+layout(set = 0, binding = 1, r32f) uniform writeonly image2D uOut;
+
+layout(push_constant) uniform Push
+{
+    ivec4 size;   // width, height, unused, unused
+} pc;
+
+void main()
+{
+    const ivec2 p = ivec2(gl_GlobalInvocationID.xy);
+    if (p.x >= pc.size.x || p.y >= pc.size.y) return;
+    imageStore(uOut, p, vec4(texelFetch(uDepth, p, 0).r));
+}

@@ -1,0 +1,40 @@
+#version 450
+// The depth pyramid (src/native/render/DepthPyramid.cpp, wxl.vk.render GetDepthPyramid): one level a dispatch, each
+// texel the nearest (r) and the farthest (g) raw depth of its 2 x 2 footprint one level down -- the scene depth's pixels
+// for level 0 -- the footprint clamped at the source's last row and column, so every source texel is under one.
+// WXL_PYRAMID_RGBA32F: the build for a device without the extended storage formats (rg32f needs them), .rg as above.
+
+layout(local_size_x = 8, local_size_y = 8) in;
+
+#if WXL_PYRAMID_RGBA32F
+#define PYRAMID_FORMAT rgba32f
+#else
+#define PYRAMID_FORMAT rg32f
+#endif
+
+layout(set = 0, binding = 0) uniform sampler2D uDepth;                          // level 0's source: the scene depth
+layout(set = 0, binding = 1, PYRAMID_FORMAT) uniform readonly image2D uSrc;     // the levels above it: the level below
+layout(set = 0, binding = 2, PYRAMID_FORMAT) uniform writeonly image2D uDst;
+
+layout(push_constant) uniform Push
+{
+    ivec4 size;   // the source's width, height; 1 when it is the scene depth (level 0); unused
+} pc;
+
+void main()
+{
+    const ivec2 p = ivec2(gl_GlobalInvocationID.xy);
+    if (any(greaterThanEqual(p, imageSize(uDst)))) return;
+    const ivec2 last = pc.size.xy - 1;
+    vec2 r = vec2(3.0e38, -3.0e38);
+    for (int j = 0; j < 2; ++j)
+        for (int i = 0; i < 2; ++i)
+        {
+            const ivec2 q = min(p * 2 + ivec2(i, j), last);
+            vec2 v;
+            if (pc.size.z != 0) v = vec2(texelFetch(uDepth, q, 0).r);
+            else v = imageLoad(uSrc, q).rg;
+            r = vec2(min(r.x, v.x), max(r.y, v.y));
+        }
+    imageStore(uDst, p, vec4(r, 0.0, 0.0));
+}

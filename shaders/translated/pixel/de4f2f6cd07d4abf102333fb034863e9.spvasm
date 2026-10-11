@@ -1,0 +1,1389 @@
+; SPIR-V
+; Version: 1.0
+; Generator: Khronos Glslang Reference Front End; 11
+; Bound: 1075
+; Schema: 0
+               OpCapability Shader
+          %1 = OpExtInstImport "GLSL.std.450"
+               OpMemoryModel Logical GLSL450
+               OpEntryPoint Fragment %main "main" %oC0 %color0 %color1 %texcoord0 %texcoord1 %texcoord2 %texcoord4 %texcoord5 %texcoord6 %fog0
+               OpExecutionMode %main OriginUpperLeft
+               OpSource GLSL 450
+               OpName %main "main"
+               OpName %r0 "r0"
+               OpName %r1 "r1"
+               OpName %r2 "r2"
+               OpName %r3 "r3"
+               OpName %r4 "r4"
+               OpName %r5 "r5"
+               OpName %r6 "r6"
+               OpName %oC0 "oC0"
+               OpName %v0 "v0"
+               OpName %color0 "color0"
+               OpName %v1 "v1"
+               OpName %color1 "color1"
+               OpName %v2 "v2"
+               OpName %texcoord0 "texcoord0"
+               OpName %v3 "v3"
+               OpName %texcoord1 "texcoord1"
+               OpName %v4 "v4"
+               OpName %texcoord2 "texcoord2"
+               OpName %v5 "v5"
+               OpName %texcoord4 "texcoord4"
+               OpName %v6 "v6"
+               OpName %texcoord5 "texcoord5"
+               OpName %v7 "v7"
+               OpName %texcoord6 "texcoord6"
+               OpName %v8 "v8"
+               OpName %fog0 "fog0"
+               OpName %s0 "s0"
+               OpName %s1 "s1"
+               OpName %s2 "s2"
+               OpName %s3 "s3"
+               OpName %Regs "Regs"
+               OpMemberName %Regs 0 "p"
+               OpMemberName %Regs 1 "misc"
+               OpMemberName %Regs 2 "v"
+               OpName %regs "regs"
+               OpName %s5 "s5"
+               OpName %s6 "s6"
+               OpName %s7 "s7"
+               OpName %s8 "s8"
+               OpDecorate %oC0 Location 0
+               OpDecorate %color0 Location 0
+               OpDecorate %color1 Location 1
+               OpDecorate %texcoord0 Location 2
+               OpDecorate %texcoord1 Location 3
+               OpDecorate %texcoord2 Location 4
+               OpDecorate %texcoord4 Location 6
+               OpDecorate %texcoord5 Location 7
+               OpDecorate %texcoord6 Location 8
+               OpDecorate %fog0 Location 10
+               OpDecorate %s0 Binding 0
+               OpDecorate %s0 DescriptorSet 0
+               OpDecorate %s1 Binding 1
+               OpDecorate %s1 DescriptorSet 0
+               OpDecorate %s2 Binding 2
+               OpDecorate %s2 DescriptorSet 0
+               OpDecorate %s3 Binding 3
+               OpDecorate %s3 DescriptorSet 0
+               OpDecorate %_arr_v4float_uint_16 ArrayStride 16
+               OpDecorate %_arr_v4float_uint_64 ArrayStride 16
+               OpDecorate %Regs Block
+               OpMemberDecorate %Regs 0 Offset 0
+               OpMemberDecorate %Regs 1 Offset 256
+               OpMemberDecorate %Regs 2 Offset 272
+               OpDecorate %regs Binding 0
+               OpDecorate %regs DescriptorSet 1
+               OpDecorate %s5 Binding 5
+               OpDecorate %s5 DescriptorSet 0
+               OpDecorate %s6 Binding 6
+               OpDecorate %s6 DescriptorSet 0
+               OpDecorate %s7 Binding 7
+               OpDecorate %s7 DescriptorSet 0
+               OpDecorate %s8 Binding 8
+               OpDecorate %s8 DescriptorSet 0
+       %void = OpTypeVoid
+          %3 = OpTypeFunction %void
+      %float = OpTypeFloat 32
+    %v4float = OpTypeVector %float 4
+%_ptr_Function_v4float = OpTypePointer Function %v4float
+    %float_0 = OpConstant %float 0
+         %11 = OpConstantComposite %v4float %float_0 %float_0 %float_0 %float_0
+%_ptr_Output_v4float = OpTypePointer Output %v4float
+        %oC0 = OpVariable %_ptr_Output_v4float Output
+%_ptr_Input_v4float = OpTypePointer Input %v4float
+     %color0 = OpVariable %_ptr_Input_v4float Input
+     %color1 = OpVariable %_ptr_Input_v4float Input
+  %texcoord0 = OpVariable %_ptr_Input_v4float Input
+  %texcoord1 = OpVariable %_ptr_Input_v4float Input
+  %texcoord2 = OpVariable %_ptr_Input_v4float Input
+  %texcoord4 = OpVariable %_ptr_Input_v4float Input
+  %texcoord5 = OpVariable %_ptr_Input_v4float Input
+  %texcoord6 = OpVariable %_ptr_Input_v4float Input
+%_ptr_Input_float = OpTypePointer Input %float
+       %fog0 = OpVariable %_ptr_Input_float Input
+         %50 = OpTypeImage %float 2D 0 0 0 1 Unknown
+         %51 = OpTypeSampledImage %50
+%_ptr_UniformConstant_51 = OpTypePointer UniformConstant %51
+         %s0 = OpVariable %_ptr_UniformConstant_51 UniformConstant
+    %v2float = OpTypeVector %float 2
+         %s1 = OpVariable %_ptr_UniformConstant_51 UniformConstant
+         %s2 = OpVariable %_ptr_UniformConstant_51 UniformConstant
+         %s3 = OpVariable %_ptr_UniformConstant_51 UniformConstant
+       %uint = OpTypeInt 32 0
+    %uint_16 = OpConstant %uint 16
+%_arr_v4float_uint_16 = OpTypeArray %v4float %uint_16
+    %uint_64 = OpConstant %uint 64
+%_arr_v4float_uint_64 = OpTypeArray %v4float %uint_64
+       %Regs = OpTypeStruct %_arr_v4float_uint_16 %v4float %_arr_v4float_uint_64
+%_ptr_Uniform_Regs = OpTypePointer Uniform %Regs
+       %regs = OpVariable %_ptr_Uniform_Regs Uniform
+        %int = OpTypeInt 32 1
+      %int_0 = OpConstant %int 0
+      %int_1 = OpConstant %int 1
+    %v3float = OpTypeVector %float 3
+%_ptr_Uniform_v4float = OpTypePointer Uniform %v4float
+     %uint_0 = OpConstant %uint 0
+%_ptr_Function_float = OpTypePointer Function %float
+     %uint_1 = OpConstant %uint 1
+     %uint_2 = OpConstant %uint 2
+        %130 = OpConstantComposite %v3float %float_0 %float_0 %float_0
+       %bool = OpTypeBool
+     %v3bool = OpTypeVector %bool 3
+     %uint_3 = OpConstant %uint 3
+    %float_1 = OpConstant %float 1
+        %197 = OpConstantComposite %v3float %float_1 %float_1 %float_1
+%float_n3_4482758 = OpConstant %float -3.4482758
+%float_3_41379309 = OpConstant %float 3.41379309
+  %float_0_5 = OpConstant %float 0.5
+        %255 = OpConstantComposite %v4float %float_0_5 %float_0_5 %float_1 %float_0
+        %257 = OpConstantComposite %v4float %float_0_5 %float_0_5 %float_0 %float_0
+         %s5 = OpVariable %_ptr_UniformConstant_51 UniformConstant
+        %268 = OpConstantComposite %v2float %float_0_5 %float_0_5
+      %int_3 = OpConstant %int 3
+        %286 = OpConstantComposite %v2float %float_1 %float_0
+      %int_4 = OpConstant %int 4
+      %int_5 = OpConstant %int 5
+      %int_6 = OpConstant %int 6
+      %int_7 = OpConstant %int 7
+      %int_8 = OpConstant %int 8
+      %int_9 = OpConstant %int 9
+     %int_10 = OpConstant %int 10
+%float_0_111111112 = OpConstant %float 0.111111112
+         %s6 = OpVariable %_ptr_UniformConstant_51 UniformConstant
+%float_0_200000003 = OpConstant %float 0.200000003
+         %s7 = OpVariable %_ptr_UniformConstant_51 UniformConstant
+        %837 = OpConstantComposite %v2float %float_0_5 %float_0
+         %s8 = OpVariable %_ptr_UniformConstant_51 UniformConstant
+%float_n11_1111107 = OpConstant %float -11.1111107
+   %float_11 = OpConstant %float 11
+   %float_n1 = OpConstant %float -1
+%float_0_300000012 = OpConstant %float 0.300000012
+%float_0_699999988 = OpConstant %float 0.699999988
+      %int_2 = OpConstant %int 2
+%_ptr_Output_float = OpTypePointer Output %float
+%_ptr_Uniform_float = OpTypePointer Uniform %float
+       %1071 = OpConstantComposite %v4float %float_1 %float_n3_4482758 %float_3_41379309 %float_0
+       %1072 = OpConstantComposite %v4float %float_0_5 %float_1 %float_0 %float_0_111111112
+       %1073 = OpConstantComposite %v4float %float_0_200000003 %float_n11_1111107 %float_11 %float_n1
+       %1074 = OpConstantComposite %v4float %float_0_300000012 %float_0_699999988 %float_0 %float_0
+       %main = OpFunction %void None %3
+          %5 = OpLabel
+         %r0 = OpVariable %_ptr_Function_v4float Function
+         %r1 = OpVariable %_ptr_Function_v4float Function
+         %r2 = OpVariable %_ptr_Function_v4float Function
+         %r3 = OpVariable %_ptr_Function_v4float Function
+         %r4 = OpVariable %_ptr_Function_v4float Function
+         %r5 = OpVariable %_ptr_Function_v4float Function
+         %r6 = OpVariable %_ptr_Function_v4float Function
+         %v0 = OpVariable %_ptr_Function_v4float Function
+         %v1 = OpVariable %_ptr_Function_v4float Function
+         %v2 = OpVariable %_ptr_Function_v4float Function
+         %v3 = OpVariable %_ptr_Function_v4float Function
+         %v4 = OpVariable %_ptr_Function_v4float Function
+         %v5 = OpVariable %_ptr_Function_v4float Function
+         %v6 = OpVariable %_ptr_Function_v4float Function
+         %v7 = OpVariable %_ptr_Function_v4float Function
+         %v8 = OpVariable %_ptr_Function_v4float Function
+               OpStore %r0 %11
+               OpStore %r1 %11
+               OpStore %r2 %11
+               OpStore %r3 %11
+               OpStore %r4 %11
+               OpStore %r5 %11
+               OpStore %r6 %11
+               OpStore %oC0 %11
+         %23 = OpLoad %v4float %color0
+               OpStore %v0 %23
+         %26 = OpLoad %v4float %color1
+               OpStore %v1 %26
+         %29 = OpLoad %v4float %texcoord0
+               OpStore %v2 %29
+         %32 = OpLoad %v4float %texcoord1
+               OpStore %v3 %32
+         %35 = OpLoad %v4float %texcoord2
+               OpStore %v4 %35
+         %38 = OpLoad %v4float %texcoord4
+               OpStore %v5 %38
+         %41 = OpLoad %v4float %texcoord5
+               OpStore %v6 %41
+         %44 = OpLoad %v4float %texcoord6
+               OpStore %v7 %44
+         %48 = OpLoad %float %fog0
+         %49 = OpCompositeConstruct %v4float %48 %float_0 %float_0 %float_0
+               OpStore %v8 %49
+         %54 = OpLoad %51 %s0
+         %56 = OpLoad %v4float %v2
+         %57 = OpVectorShuffle %v2float %56 %56 0 1
+         %58 = OpImageSampleImplicitLod %v4float %54 %57
+               OpStore %r0 %58
+         %60 = OpLoad %51 %s1
+         %61 = OpLoad %v4float %v3
+         %62 = OpVectorShuffle %v2float %61 %61 0 1
+         %63 = OpImageSampleImplicitLod %v4float %60 %62
+               OpStore %r1 %63
+         %65 = OpLoad %51 %s2
+         %66 = OpLoad %v4float %v3
+         %67 = OpVectorShuffle %v2float %66 %66 3 2
+         %68 = OpImageSampleImplicitLod %v4float %65 %67
+               OpStore %r2 %68
+         %70 = OpLoad %51 %s3
+         %71 = OpLoad %v4float %v4
+         %72 = OpVectorShuffle %v2float %71 %71 0 1
+         %73 = OpImageSampleImplicitLod %v4float %70 %72
+               OpStore %r3 %73
+         %87 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_1
+         %88 = OpLoad %v4float %87
+         %89 = OpVectorShuffle %v3float %88 %88 0 1 2
+         %90 = OpExtInst %v3float %1 FAbs %89
+         %93 = OpAccessChain %_ptr_Function_float %r4 %uint_0
+         %94 = OpCompositeExtract %float %90 0
+               OpStore %93 %94
+         %96 = OpAccessChain %_ptr_Function_float %r4 %uint_1
+         %97 = OpCompositeExtract %float %90 1
+               OpStore %96 %97
+         %99 = OpAccessChain %_ptr_Function_float %r4 %uint_2
+        %100 = OpCompositeExtract %float %90 2
+               OpStore %99 %100
+        %101 = OpLoad %v4float %v0
+        %102 = OpVectorShuffle %v3float %101 %101 0 1 2
+        %103 = OpLoad %v4float %v0
+        %104 = OpVectorShuffle %v3float %103 %103 0 1 2
+        %105 = OpFAdd %v3float %102 %104
+        %106 = OpAccessChain %_ptr_Function_float %r5 %uint_0
+        %107 = OpCompositeExtract %float %105 0
+               OpStore %106 %107
+        %108 = OpAccessChain %_ptr_Function_float %r5 %uint_1
+        %109 = OpCompositeExtract %float %105 1
+               OpStore %108 %109
+        %110 = OpAccessChain %_ptr_Function_float %r5 %uint_2
+        %111 = OpCompositeExtract %float %105 2
+               OpStore %110 %111
+        %112 = OpLoad %v4float %r0
+        %113 = OpVectorShuffle %v3float %112 %112 0 1 2
+        %114 = OpLoad %v4float %r5
+        %115 = OpVectorShuffle %v3float %114 %114 0 1 2
+        %116 = OpFMul %v3float %113 %115
+        %117 = OpAccessChain %_ptr_Function_float %r6 %uint_0
+        %118 = OpCompositeExtract %float %116 0
+               OpStore %117 %118
+        %119 = OpAccessChain %_ptr_Function_float %r6 %uint_1
+        %120 = OpCompositeExtract %float %116 1
+               OpStore %119 %120
+        %121 = OpAccessChain %_ptr_Function_float %r6 %uint_2
+        %122 = OpCompositeExtract %float %116 2
+               OpStore %121 %122
+        %123 = OpLoad %v4float %r6
+        %124 = OpVectorShuffle %v3float %123 %123 0 1 2
+        %125 = OpLoad %v4float %r0
+        %126 = OpVectorShuffle %v3float %125 %125 0 1 2
+        %127 = OpLoad %v4float %r4
+        %128 = OpVectorShuffle %v3float %127 %127 0 0 0
+        %129 = OpFNegate %v3float %128
+        %133 = OpFOrdGreaterThanEqual %v3bool %129 %130
+        %134 = OpSelect %v3float %133 %126 %124
+        %135 = OpAccessChain %_ptr_Function_float %r0 %uint_0
+        %136 = OpCompositeExtract %float %134 0
+               OpStore %135 %136
+        %137 = OpAccessChain %_ptr_Function_float %r0 %uint_1
+        %138 = OpCompositeExtract %float %134 1
+               OpStore %137 %138
+        %139 = OpAccessChain %_ptr_Function_float %r0 %uint_2
+        %140 = OpCompositeExtract %float %134 2
+               OpStore %139 %140
+        %141 = OpLoad %v4float %r1
+        %142 = OpVectorShuffle %v3float %141 %141 0 1 2
+        %143 = OpLoad %v4float %r5
+        %144 = OpVectorShuffle %v3float %143 %143 0 1 2
+        %145 = OpFMul %v3float %142 %144
+        %146 = OpAccessChain %_ptr_Function_float %r6 %uint_0
+        %147 = OpCompositeExtract %float %145 0
+               OpStore %146 %147
+        %148 = OpAccessChain %_ptr_Function_float %r6 %uint_1
+        %149 = OpCompositeExtract %float %145 1
+               OpStore %148 %149
+        %150 = OpAccessChain %_ptr_Function_float %r6 %uint_2
+        %151 = OpCompositeExtract %float %145 2
+               OpStore %150 %151
+        %152 = OpLoad %v4float %r6
+        %153 = OpVectorShuffle %v3float %152 %152 0 1 2
+        %154 = OpLoad %v4float %r1
+        %155 = OpVectorShuffle %v3float %154 %154 0 1 2
+        %156 = OpLoad %v4float %r4
+        %157 = OpVectorShuffle %v3float %156 %156 1 1 1
+        %158 = OpFNegate %v3float %157
+        %159 = OpFOrdGreaterThanEqual %v3bool %158 %130
+        %160 = OpSelect %v3float %159 %155 %153
+        %161 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %162 = OpCompositeExtract %float %160 0
+               OpStore %161 %162
+        %163 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %164 = OpCompositeExtract %float %160 1
+               OpStore %163 %164
+        %165 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+        %166 = OpCompositeExtract %float %160 2
+               OpStore %165 %166
+        %167 = OpLoad %v4float %r2
+        %168 = OpVectorShuffle %v3float %167 %167 0 1 2
+        %169 = OpLoad %v4float %r5
+        %170 = OpVectorShuffle %v3float %169 %169 0 1 2
+        %171 = OpFMul %v3float %168 %170
+        %172 = OpAccessChain %_ptr_Function_float %r4 %uint_0
+        %173 = OpCompositeExtract %float %171 0
+               OpStore %172 %173
+        %174 = OpAccessChain %_ptr_Function_float %r4 %uint_1
+        %175 = OpCompositeExtract %float %171 1
+               OpStore %174 %175
+        %177 = OpAccessChain %_ptr_Function_float %r4 %uint_3
+        %178 = OpCompositeExtract %float %171 2
+               OpStore %177 %178
+        %179 = OpLoad %v4float %r4
+        %180 = OpVectorShuffle %v3float %179 %179 0 1 3
+        %181 = OpLoad %v4float %r2
+        %182 = OpVectorShuffle %v3float %181 %181 0 1 2
+        %183 = OpLoad %v4float %r4
+        %184 = OpVectorShuffle %v3float %183 %183 2 2 2
+        %185 = OpFNegate %v3float %184
+        %186 = OpFOrdGreaterThanEqual %v3bool %185 %130
+        %187 = OpSelect %v3float %186 %182 %180
+        %188 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %189 = OpCompositeExtract %float %187 0
+               OpStore %188 %189
+        %190 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %191 = OpCompositeExtract %float %187 1
+               OpStore %190 %191
+        %192 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %193 = OpCompositeExtract %float %187 2
+               OpStore %192 %193
+        %194 = OpLoad %v4float %r3
+        %195 = OpVectorShuffle %v3float %194 %194 0 1 2
+        %198 = OpDot %float %195 %197
+        %199 = OpExtInst %float %1 FClamp %198 %float_0 %float_1
+        %200 = OpAccessChain %_ptr_Function_float %r3 %uint_2
+               OpStore %200 %199
+        %201 = OpAccessChain %_ptr_Function_float %r3 %uint_2
+        %202 = OpLoad %float %201
+        %203 = OpFNegate %float %202
+        %204 = OpFAdd %float %203 %float_1
+        %205 = OpAccessChain %_ptr_Function_float %r3 %uint_2
+               OpStore %205 %204
+        %206 = OpLoad %v4float %r3
+        %207 = OpVectorShuffle %v4float %206 %206 0 0 0 0
+        %208 = OpLoad %v4float %r1
+        %209 = OpFMul %v4float %207 %208
+               OpStore %r1 %209
+        %210 = OpLoad %v4float %r0
+        %211 = OpLoad %v4float %r3
+        %212 = OpVectorShuffle %v4float %211 %211 2 2 2 2
+        %213 = OpFMul %v4float %210 %212
+        %214 = OpLoad %v4float %r1
+        %215 = OpFAdd %v4float %213 %214
+               OpStore %r0 %215
+        %216 = OpLoad %v4float %r2
+        %217 = OpLoad %v4float %r3
+        %218 = OpVectorShuffle %v4float %217 %217 1 1 1 1
+        %219 = OpFMul %v4float %216 %218
+        %220 = OpLoad %v4float %r0
+        %221 = OpFAdd %v4float %219 %220
+               OpStore %r0 %221
+        %222 = OpAccessChain %_ptr_Function_float %v5 %uint_0
+        %223 = OpLoad %float %222
+        %224 = OpExtInst %float %1 FAbs %223
+        %225 = OpAccessChain %_ptr_Function_float %v5 %uint_1
+        %226 = OpLoad %float %225
+        %227 = OpExtInst %float %1 FAbs %226
+        %228 = OpExtInst %float %1 FMax %224 %227
+        %229 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %229 %228
+        %230 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %231 = OpLoad %float %230
+        %233 = OpFMul %float %231 %float_n3_4482758
+        %235 = OpFAdd %float %233 %float_3_41379309
+        %236 = OpExtInst %float %1 FClamp %235 %float_0 %float_1
+        %237 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %237 %236
+        %238 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %239 = OpLoad %float %238
+        %240 = OpFNegate %float %239
+        %241 = OpFOrdGreaterThanEqual %bool %240 %float_0
+        %242 = OpSelect %float %241 %float_0 %float_1
+        %243 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %243 %242
+        %244 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %245 = OpLoad %float %244
+        %246 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %247 = OpLoad %float %246
+        %248 = OpFNegate %float %247
+        %249 = OpFUnordNotEqual %bool %245 %248
+               OpSelectionMerge %251 None
+               OpBranchConditional %249 %250 %521
+        %250 = OpLabel
+        %252 = OpLoad %v4float %v5
+        %253 = OpVectorShuffle %v4float %252 %252 0 1 2 0
+        %256 = OpFMul %v4float %253 %255
+        %258 = OpFAdd %v4float %256 %257
+               OpStore %r1 %258
+        %260 = OpLoad %51 %s5
+        %261 = OpLoad %v4float %r1
+        %262 = OpVectorShuffle %v2float %261 %261 0 1
+        %263 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %264 = OpLoad %float %263
+        %265 = OpImageSampleExplicitLod %v4float %260 %262 Lod %264
+               OpStore %r1 %265
+        %266 = OpLoad %v4float %v5
+        %267 = OpVectorShuffle %v2float %266 %266 0 1
+        %269 = OpFMul %v2float %267 %268
+        %270 = OpFAdd %v2float %269 %268
+        %271 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %272 = OpCompositeExtract %float %270 0
+               OpStore %271 %272
+        %273 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+        %274 = OpCompositeExtract %float %270 1
+               OpStore %273 %274
+        %275 = OpLoad %v4float %r1
+        %276 = OpVectorShuffle %v2float %275 %275 1 2
+        %278 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_3
+        %279 = OpLoad %v4float %278
+        %280 = OpVectorShuffle %v2float %279 %279 0 1
+        %281 = OpFAdd %v2float %276 %280
+        %282 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %283 = OpCompositeExtract %float %281 0
+               OpStore %282 %283
+        %284 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %285 = OpCompositeExtract %float %281 1
+               OpStore %284 %285
+        %287 = OpLoad %v4float %v5
+        %288 = OpVectorShuffle %v2float %287 %287 2 0
+        %289 = OpFMul %v2float %286 %288
+        %290 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %291 = OpCompositeExtract %float %289 0
+               OpStore %290 %291
+        %292 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %293 = OpCompositeExtract %float %289 1
+               OpStore %292 %293
+        %294 = OpLoad %51 %s5
+        %295 = OpLoad %v4float %r2
+        %296 = OpVectorShuffle %v2float %295 %295 0 1
+        %297 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %298 = OpLoad %float %297
+        %299 = OpImageSampleExplicitLod %v4float %294 %296 Lod %298
+               OpStore %r2 %299
+        %300 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %301 = OpLoad %float %300
+        %302 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %303 = OpLoad %float %302
+        %304 = OpFAdd %float %301 %303
+        %305 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %305 %304
+        %306 = OpLoad %v4float %r1
+        %307 = OpVectorShuffle %v2float %306 %306 1 2
+        %309 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_4
+        %310 = OpLoad %v4float %309
+        %311 = OpVectorShuffle %v2float %310 %310 0 1
+        %312 = OpFAdd %v2float %307 %311
+        %313 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %314 = OpCompositeExtract %float %312 0
+               OpStore %313 %314
+        %315 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %316 = OpCompositeExtract %float %312 1
+               OpStore %315 %316
+        %317 = OpLoad %v4float %v5
+        %318 = OpVectorShuffle %v2float %317 %317 2 0
+        %319 = OpFMul %v2float %286 %318
+        %320 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %321 = OpCompositeExtract %float %319 0
+               OpStore %320 %321
+        %322 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %323 = OpCompositeExtract %float %319 1
+               OpStore %322 %323
+        %324 = OpLoad %51 %s5
+        %325 = OpLoad %v4float %r2
+        %326 = OpVectorShuffle %v2float %325 %325 0 1
+        %327 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %328 = OpLoad %float %327
+        %329 = OpImageSampleExplicitLod %v4float %324 %326 Lod %328
+               OpStore %r2 %329
+        %330 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %331 = OpLoad %float %330
+        %332 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %333 = OpLoad %float %332
+        %334 = OpFAdd %float %331 %333
+        %335 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %335 %334
+        %336 = OpLoad %v4float %r1
+        %337 = OpVectorShuffle %v2float %336 %336 1 2
+        %339 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_5
+        %340 = OpLoad %v4float %339
+        %341 = OpVectorShuffle %v2float %340 %340 0 1
+        %342 = OpFAdd %v2float %337 %341
+        %343 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %344 = OpCompositeExtract %float %342 0
+               OpStore %343 %344
+        %345 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %346 = OpCompositeExtract %float %342 1
+               OpStore %345 %346
+        %347 = OpLoad %v4float %v5
+        %348 = OpVectorShuffle %v2float %347 %347 2 0
+        %349 = OpFMul %v2float %286 %348
+        %350 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %351 = OpCompositeExtract %float %349 0
+               OpStore %350 %351
+        %352 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %353 = OpCompositeExtract %float %349 1
+               OpStore %352 %353
+        %354 = OpLoad %51 %s5
+        %355 = OpLoad %v4float %r2
+        %356 = OpVectorShuffle %v2float %355 %355 0 1
+        %357 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %358 = OpLoad %float %357
+        %359 = OpImageSampleExplicitLod %v4float %354 %356 Lod %358
+               OpStore %r2 %359
+        %360 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %361 = OpLoad %float %360
+        %362 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %363 = OpLoad %float %362
+        %364 = OpFAdd %float %361 %363
+        %365 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %365 %364
+        %366 = OpLoad %v4float %r1
+        %367 = OpVectorShuffle %v2float %366 %366 1 2
+        %369 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_6
+        %370 = OpLoad %v4float %369
+        %371 = OpVectorShuffle %v2float %370 %370 0 1
+        %372 = OpFAdd %v2float %367 %371
+        %373 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %374 = OpCompositeExtract %float %372 0
+               OpStore %373 %374
+        %375 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %376 = OpCompositeExtract %float %372 1
+               OpStore %375 %376
+        %377 = OpLoad %v4float %v5
+        %378 = OpVectorShuffle %v2float %377 %377 2 0
+        %379 = OpFMul %v2float %286 %378
+        %380 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %381 = OpCompositeExtract %float %379 0
+               OpStore %380 %381
+        %382 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %383 = OpCompositeExtract %float %379 1
+               OpStore %382 %383
+        %384 = OpLoad %51 %s5
+        %385 = OpLoad %v4float %r2
+        %386 = OpVectorShuffle %v2float %385 %385 0 1
+        %387 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %388 = OpLoad %float %387
+        %389 = OpImageSampleExplicitLod %v4float %384 %386 Lod %388
+               OpStore %r2 %389
+        %390 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %391 = OpLoad %float %390
+        %392 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %393 = OpLoad %float %392
+        %394 = OpFAdd %float %391 %393
+        %395 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %395 %394
+        %396 = OpLoad %v4float %r1
+        %397 = OpVectorShuffle %v2float %396 %396 1 2
+        %399 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_7
+        %400 = OpLoad %v4float %399
+        %401 = OpVectorShuffle %v2float %400 %400 0 1
+        %402 = OpFAdd %v2float %397 %401
+        %403 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %404 = OpCompositeExtract %float %402 0
+               OpStore %403 %404
+        %405 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %406 = OpCompositeExtract %float %402 1
+               OpStore %405 %406
+        %407 = OpLoad %v4float %v5
+        %408 = OpVectorShuffle %v2float %407 %407 2 0
+        %409 = OpFMul %v2float %286 %408
+        %410 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %411 = OpCompositeExtract %float %409 0
+               OpStore %410 %411
+        %412 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %413 = OpCompositeExtract %float %409 1
+               OpStore %412 %413
+        %414 = OpLoad %51 %s5
+        %415 = OpLoad %v4float %r2
+        %416 = OpVectorShuffle %v2float %415 %415 0 1
+        %417 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %418 = OpLoad %float %417
+        %419 = OpImageSampleExplicitLod %v4float %414 %416 Lod %418
+               OpStore %r2 %419
+        %420 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %421 = OpLoad %float %420
+        %422 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %423 = OpLoad %float %422
+        %424 = OpFAdd %float %421 %423
+        %425 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %425 %424
+        %426 = OpLoad %v4float %r1
+        %427 = OpVectorShuffle %v2float %426 %426 1 2
+        %429 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_8
+        %430 = OpLoad %v4float %429
+        %431 = OpVectorShuffle %v2float %430 %430 0 1
+        %432 = OpFAdd %v2float %427 %431
+        %433 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %434 = OpCompositeExtract %float %432 0
+               OpStore %433 %434
+        %435 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %436 = OpCompositeExtract %float %432 1
+               OpStore %435 %436
+        %437 = OpLoad %v4float %v5
+        %438 = OpVectorShuffle %v2float %437 %437 2 0
+        %439 = OpFMul %v2float %286 %438
+        %440 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %441 = OpCompositeExtract %float %439 0
+               OpStore %440 %441
+        %442 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %443 = OpCompositeExtract %float %439 1
+               OpStore %442 %443
+        %444 = OpLoad %51 %s5
+        %445 = OpLoad %v4float %r2
+        %446 = OpVectorShuffle %v2float %445 %445 0 1
+        %447 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %448 = OpLoad %float %447
+        %449 = OpImageSampleExplicitLod %v4float %444 %446 Lod %448
+               OpStore %r2 %449
+        %450 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %451 = OpLoad %float %450
+        %452 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %453 = OpLoad %float %452
+        %454 = OpFAdd %float %451 %453
+        %455 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %455 %454
+        %456 = OpLoad %v4float %r1
+        %457 = OpVectorShuffle %v2float %456 %456 1 2
+        %459 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_9
+        %460 = OpLoad %v4float %459
+        %461 = OpVectorShuffle %v2float %460 %460 0 1
+        %462 = OpFAdd %v2float %457 %461
+        %463 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %464 = OpCompositeExtract %float %462 0
+               OpStore %463 %464
+        %465 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %466 = OpCompositeExtract %float %462 1
+               OpStore %465 %466
+        %467 = OpLoad %v4float %v5
+        %468 = OpVectorShuffle %v2float %467 %467 2 0
+        %469 = OpFMul %v2float %286 %468
+        %470 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %471 = OpCompositeExtract %float %469 0
+               OpStore %470 %471
+        %472 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %473 = OpCompositeExtract %float %469 1
+               OpStore %472 %473
+        %474 = OpLoad %51 %s5
+        %475 = OpLoad %v4float %r2
+        %476 = OpVectorShuffle %v2float %475 %475 0 1
+        %477 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %478 = OpLoad %float %477
+        %479 = OpImageSampleExplicitLod %v4float %474 %476 Lod %478
+               OpStore %r2 %479
+        %480 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %481 = OpLoad %float %480
+        %482 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %483 = OpLoad %float %482
+        %484 = OpFAdd %float %481 %483
+        %485 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %485 %484
+        %486 = OpLoad %v4float %r1
+        %487 = OpVectorShuffle %v2float %486 %486 1 2
+        %489 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_10
+        %490 = OpLoad %v4float %489
+        %491 = OpVectorShuffle %v2float %490 %490 0 1
+        %492 = OpFAdd %v2float %487 %491
+        %493 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %494 = OpCompositeExtract %float %492 0
+               OpStore %493 %494
+        %495 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %496 = OpCompositeExtract %float %492 1
+               OpStore %495 %496
+        %497 = OpLoad %v4float %v5
+        %498 = OpVectorShuffle %v2float %497 %497 2 0
+        %499 = OpFMul %v2float %286 %498
+        %500 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %501 = OpCompositeExtract %float %499 0
+               OpStore %500 %501
+        %502 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %503 = OpCompositeExtract %float %499 1
+               OpStore %502 %503
+        %504 = OpLoad %51 %s5
+        %505 = OpLoad %v4float %r2
+        %506 = OpVectorShuffle %v2float %505 %505 0 1
+        %507 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %508 = OpLoad %float %507
+        %509 = OpImageSampleExplicitLod %v4float %504 %506 Lod %508
+               OpStore %r2 %509
+        %510 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %511 = OpLoad %float %510
+        %512 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %513 = OpLoad %float %512
+        %514 = OpFAdd %float %511 %513
+        %515 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %515 %514
+        %516 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %517 = OpLoad %float %516
+        %519 = OpFMul %float %517 %float_0_111111112
+        %520 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %520 %519
+               OpBranch %251
+        %521 = OpLabel
+        %522 = OpAccessChain %_ptr_Function_float %v6 %uint_0
+        %523 = OpLoad %float %522
+        %524 = OpExtInst %float %1 FAbs %523
+        %525 = OpAccessChain %_ptr_Function_float %v6 %uint_1
+        %526 = OpLoad %float %525
+        %527 = OpExtInst %float %1 FAbs %526
+        %528 = OpExtInst %float %1 FMax %524 %527
+        %529 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+               OpStore %529 %528
+        %530 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %531 = OpLoad %float %530
+        %532 = OpFOrdLessThan %bool %531 %float_1
+               OpSelectionMerge %534 None
+               OpBranchConditional %532 %533 %675
+        %533 = OpLabel
+        %535 = OpLoad %v4float %v6
+        %536 = OpVectorShuffle %v4float %535 %535 0 1 2 0
+        %537 = OpFMul %v4float %536 %255
+        %538 = OpFAdd %v4float %537 %257
+               OpStore %r2 %538
+        %540 = OpLoad %51 %s6
+        %541 = OpLoad %v4float %r2
+        %542 = OpVectorShuffle %v2float %541 %541 0 1
+        %543 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %544 = OpLoad %float %543
+        %545 = OpImageSampleExplicitLod %v4float %540 %542 Lod %544
+               OpStore %r2 %545
+        %546 = OpLoad %v4float %v6
+        %547 = OpVectorShuffle %v2float %546 %546 0 1
+        %548 = OpFMul %v2float %547 %268
+        %549 = OpFAdd %v2float %548 %268
+        %550 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %551 = OpCompositeExtract %float %549 0
+               OpStore %550 %551
+        %552 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+        %553 = OpCompositeExtract %float %549 1
+               OpStore %552 %553
+        %554 = OpLoad %v4float %r1
+        %555 = OpVectorShuffle %v2float %554 %554 1 2
+        %556 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_3
+        %557 = OpLoad %v4float %556
+        %558 = OpVectorShuffle %v2float %557 %557 0 1
+        %559 = OpFAdd %v2float %555 %558
+        %560 = OpAccessChain %_ptr_Function_float %r3 %uint_0
+        %561 = OpCompositeExtract %float %559 0
+               OpStore %560 %561
+        %562 = OpAccessChain %_ptr_Function_float %r3 %uint_1
+        %563 = OpCompositeExtract %float %559 1
+               OpStore %562 %563
+        %564 = OpLoad %v4float %v6
+        %565 = OpVectorShuffle %v2float %564 %564 2 0
+        %566 = OpFMul %v2float %286 %565
+        %567 = OpAccessChain %_ptr_Function_float %r3 %uint_2
+        %568 = OpCompositeExtract %float %566 0
+               OpStore %567 %568
+        %569 = OpAccessChain %_ptr_Function_float %r3 %uint_3
+        %570 = OpCompositeExtract %float %566 1
+               OpStore %569 %570
+        %571 = OpLoad %51 %s6
+        %572 = OpLoad %v4float %r3
+        %573 = OpVectorShuffle %v2float %572 %572 0 1
+        %574 = OpAccessChain %_ptr_Function_float %r3 %uint_3
+        %575 = OpLoad %float %574
+        %576 = OpImageSampleExplicitLod %v4float %571 %573 Lod %575
+               OpStore %r3 %576
+        %577 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %578 = OpLoad %float %577
+        %579 = OpAccessChain %_ptr_Function_float %r3 %uint_0
+        %580 = OpLoad %float %579
+        %581 = OpFAdd %float %578 %580
+        %582 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %582 %581
+        %583 = OpLoad %v4float %r1
+        %584 = OpVectorShuffle %v2float %583 %583 1 2
+        %585 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_5
+        %586 = OpLoad %v4float %585
+        %587 = OpVectorShuffle %v2float %586 %586 0 1
+        %588 = OpFAdd %v2float %584 %587
+        %589 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %590 = OpCompositeExtract %float %588 0
+               OpStore %589 %590
+        %591 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %592 = OpCompositeExtract %float %588 1
+               OpStore %591 %592
+        %593 = OpLoad %v4float %v6
+        %594 = OpVectorShuffle %v2float %593 %593 2 0
+        %595 = OpFMul %v2float %286 %594
+        %596 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %597 = OpCompositeExtract %float %595 0
+               OpStore %596 %597
+        %598 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %599 = OpCompositeExtract %float %595 1
+               OpStore %598 %599
+        %600 = OpLoad %51 %s6
+        %601 = OpLoad %v4float %r2
+        %602 = OpVectorShuffle %v2float %601 %601 0 1
+        %603 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %604 = OpLoad %float %603
+        %605 = OpImageSampleExplicitLod %v4float %600 %602 Lod %604
+               OpStore %r2 %605
+        %606 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %607 = OpLoad %float %606
+        %608 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %609 = OpLoad %float %608
+        %610 = OpFAdd %float %607 %609
+        %611 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %611 %610
+        %612 = OpLoad %v4float %r1
+        %613 = OpVectorShuffle %v2float %612 %612 1 2
+        %614 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_7
+        %615 = OpLoad %v4float %614
+        %616 = OpVectorShuffle %v2float %615 %615 0 1
+        %617 = OpFAdd %v2float %613 %616
+        %618 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %619 = OpCompositeExtract %float %617 0
+               OpStore %618 %619
+        %620 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %621 = OpCompositeExtract %float %617 1
+               OpStore %620 %621
+        %622 = OpLoad %v4float %v6
+        %623 = OpVectorShuffle %v2float %622 %622 2 0
+        %624 = OpFMul %v2float %286 %623
+        %625 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %626 = OpCompositeExtract %float %624 0
+               OpStore %625 %626
+        %627 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %628 = OpCompositeExtract %float %624 1
+               OpStore %627 %628
+        %629 = OpLoad %51 %s6
+        %630 = OpLoad %v4float %r2
+        %631 = OpVectorShuffle %v2float %630 %630 0 1
+        %632 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %633 = OpLoad %float %632
+        %634 = OpImageSampleExplicitLod %v4float %629 %631 Lod %633
+               OpStore %r2 %634
+        %635 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %636 = OpLoad %float %635
+        %637 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %638 = OpLoad %float %637
+        %639 = OpFAdd %float %636 %638
+        %640 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %640 %639
+        %641 = OpLoad %v4float %r1
+        %642 = OpVectorShuffle %v2float %641 %641 1 2
+        %643 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_9
+        %644 = OpLoad %v4float %643
+        %645 = OpVectorShuffle %v2float %644 %644 0 1
+        %646 = OpFAdd %v2float %642 %645
+        %647 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %648 = OpCompositeExtract %float %646 0
+               OpStore %647 %648
+        %649 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %650 = OpCompositeExtract %float %646 1
+               OpStore %649 %650
+        %651 = OpLoad %v4float %v6
+        %652 = OpVectorShuffle %v2float %651 %651 2 0
+        %653 = OpFMul %v2float %286 %652
+        %654 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %655 = OpCompositeExtract %float %653 0
+               OpStore %654 %655
+        %656 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %657 = OpCompositeExtract %float %653 1
+               OpStore %656 %657
+        %658 = OpLoad %51 %s6
+        %659 = OpLoad %v4float %r2
+        %660 = OpVectorShuffle %v2float %659 %659 0 1
+        %661 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %662 = OpLoad %float %661
+        %663 = OpImageSampleExplicitLod %v4float %658 %660 Lod %662
+               OpStore %r2 %663
+        %664 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %665 = OpLoad %float %664
+        %666 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %667 = OpLoad %float %666
+        %668 = OpFAdd %float %665 %667
+        %669 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+               OpStore %669 %668
+        %670 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %671 = OpLoad %float %670
+        %673 = OpFMul %float %671 %float_0_200000003
+        %674 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %674 %673
+               OpBranch %534
+        %675 = OpLabel
+        %676 = OpAccessChain %_ptr_Function_float %v7 %uint_0
+        %677 = OpLoad %float %676
+        %678 = OpExtInst %float %1 FAbs %677
+        %679 = OpAccessChain %_ptr_Function_float %v7 %uint_1
+        %680 = OpLoad %float %679
+        %681 = OpExtInst %float %1 FAbs %680
+        %682 = OpExtInst %float %1 FMax %678 %681
+        %683 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+               OpStore %683 %682
+        %684 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %685 = OpLoad %float %684
+        %686 = OpFOrdLessThan %bool %685 %float_1
+               OpSelectionMerge %688 None
+               OpBranchConditional %686 %687 %828
+        %687 = OpLabel
+        %689 = OpLoad %v4float %v7
+        %690 = OpVectorShuffle %v4float %689 %689 0 1 2 0
+        %691 = OpFMul %v4float %690 %255
+        %692 = OpFAdd %v4float %691 %257
+               OpStore %r2 %692
+        %694 = OpLoad %51 %s7
+        %695 = OpLoad %v4float %r2
+        %696 = OpVectorShuffle %v2float %695 %695 0 1
+        %697 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %698 = OpLoad %float %697
+        %699 = OpImageSampleExplicitLod %v4float %694 %696 Lod %698
+               OpStore %r2 %699
+        %700 = OpLoad %v4float %v7
+        %701 = OpVectorShuffle %v2float %700 %700 0 1
+        %702 = OpFMul %v2float %701 %268
+        %703 = OpFAdd %v2float %702 %268
+        %704 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %705 = OpCompositeExtract %float %703 0
+               OpStore %704 %705
+        %706 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+        %707 = OpCompositeExtract %float %703 1
+               OpStore %706 %707
+        %708 = OpLoad %v4float %r1
+        %709 = OpVectorShuffle %v2float %708 %708 1 2
+        %710 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_3
+        %711 = OpLoad %v4float %710
+        %712 = OpVectorShuffle %v2float %711 %711 0 1
+        %713 = OpFAdd %v2float %709 %712
+        %714 = OpAccessChain %_ptr_Function_float %r3 %uint_0
+        %715 = OpCompositeExtract %float %713 0
+               OpStore %714 %715
+        %716 = OpAccessChain %_ptr_Function_float %r3 %uint_1
+        %717 = OpCompositeExtract %float %713 1
+               OpStore %716 %717
+        %718 = OpLoad %v4float %v7
+        %719 = OpVectorShuffle %v2float %718 %718 2 0
+        %720 = OpFMul %v2float %286 %719
+        %721 = OpAccessChain %_ptr_Function_float %r3 %uint_2
+        %722 = OpCompositeExtract %float %720 0
+               OpStore %721 %722
+        %723 = OpAccessChain %_ptr_Function_float %r3 %uint_3
+        %724 = OpCompositeExtract %float %720 1
+               OpStore %723 %724
+        %725 = OpLoad %51 %s7
+        %726 = OpLoad %v4float %r3
+        %727 = OpVectorShuffle %v2float %726 %726 0 1
+        %728 = OpAccessChain %_ptr_Function_float %r3 %uint_3
+        %729 = OpLoad %float %728
+        %730 = OpImageSampleExplicitLod %v4float %725 %727 Lod %729
+               OpStore %r3 %730
+        %731 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %732 = OpLoad %float %731
+        %733 = OpAccessChain %_ptr_Function_float %r3 %uint_0
+        %734 = OpLoad %float %733
+        %735 = OpFAdd %float %732 %734
+        %736 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %736 %735
+        %737 = OpLoad %v4float %r1
+        %738 = OpVectorShuffle %v2float %737 %737 1 2
+        %739 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_5
+        %740 = OpLoad %v4float %739
+        %741 = OpVectorShuffle %v2float %740 %740 0 1
+        %742 = OpFAdd %v2float %738 %741
+        %743 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %744 = OpCompositeExtract %float %742 0
+               OpStore %743 %744
+        %745 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %746 = OpCompositeExtract %float %742 1
+               OpStore %745 %746
+        %747 = OpLoad %v4float %v7
+        %748 = OpVectorShuffle %v2float %747 %747 2 0
+        %749 = OpFMul %v2float %286 %748
+        %750 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %751 = OpCompositeExtract %float %749 0
+               OpStore %750 %751
+        %752 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %753 = OpCompositeExtract %float %749 1
+               OpStore %752 %753
+        %754 = OpLoad %51 %s7
+        %755 = OpLoad %v4float %r2
+        %756 = OpVectorShuffle %v2float %755 %755 0 1
+        %757 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %758 = OpLoad %float %757
+        %759 = OpImageSampleExplicitLod %v4float %754 %756 Lod %758
+               OpStore %r2 %759
+        %760 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %761 = OpLoad %float %760
+        %762 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %763 = OpLoad %float %762
+        %764 = OpFAdd %float %761 %763
+        %765 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %765 %764
+        %766 = OpLoad %v4float %r1
+        %767 = OpVectorShuffle %v2float %766 %766 1 2
+        %768 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_7
+        %769 = OpLoad %v4float %768
+        %770 = OpVectorShuffle %v2float %769 %769 0 1
+        %771 = OpFAdd %v2float %767 %770
+        %772 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %773 = OpCompositeExtract %float %771 0
+               OpStore %772 %773
+        %774 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %775 = OpCompositeExtract %float %771 1
+               OpStore %774 %775
+        %776 = OpLoad %v4float %v7
+        %777 = OpVectorShuffle %v2float %776 %776 2 0
+        %778 = OpFMul %v2float %286 %777
+        %779 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %780 = OpCompositeExtract %float %778 0
+               OpStore %779 %780
+        %781 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %782 = OpCompositeExtract %float %778 1
+               OpStore %781 %782
+        %783 = OpLoad %51 %s7
+        %784 = OpLoad %v4float %r2
+        %785 = OpVectorShuffle %v2float %784 %784 0 1
+        %786 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %787 = OpLoad %float %786
+        %788 = OpImageSampleExplicitLod %v4float %783 %785 Lod %787
+               OpStore %r2 %788
+        %789 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %790 = OpLoad %float %789
+        %791 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %792 = OpLoad %float %791
+        %793 = OpFAdd %float %790 %792
+        %794 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %794 %793
+        %795 = OpLoad %v4float %r1
+        %796 = OpVectorShuffle %v2float %795 %795 1 2
+        %797 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_9
+        %798 = OpLoad %v4float %797
+        %799 = OpVectorShuffle %v2float %798 %798 0 1
+        %800 = OpFAdd %v2float %796 %799
+        %801 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %802 = OpCompositeExtract %float %800 0
+               OpStore %801 %802
+        %803 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %804 = OpCompositeExtract %float %800 1
+               OpStore %803 %804
+        %805 = OpLoad %v4float %v7
+        %806 = OpVectorShuffle %v2float %805 %805 2 0
+        %807 = OpFMul %v2float %286 %806
+        %808 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %809 = OpCompositeExtract %float %807 0
+               OpStore %808 %809
+        %810 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %811 = OpCompositeExtract %float %807 1
+               OpStore %810 %811
+        %812 = OpLoad %51 %s7
+        %813 = OpLoad %v4float %r2
+        %814 = OpVectorShuffle %v2float %813 %813 0 1
+        %815 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %816 = OpLoad %float %815
+        %817 = OpImageSampleExplicitLod %v4float %812 %814 Lod %816
+               OpStore %r2 %817
+        %818 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %819 = OpLoad %float %818
+        %820 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %821 = OpLoad %float %820
+        %822 = OpFAdd %float %819 %821
+        %823 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+               OpStore %823 %822
+        %824 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %825 = OpLoad %float %824
+        %826 = OpFMul %float %825 %float_0_200000003
+        %827 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %827 %826
+               OpBranch %688
+        %828 = OpLabel
+        %829 = OpAccessChain %_ptr_Function_float %v5 %uint_3
+        %830 = OpLoad %float %829
+        %831 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+               OpStore %831 %830
+        %832 = OpAccessChain %_ptr_Function_float %v6 %uint_3
+        %833 = OpLoad %float %832
+        %834 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+               OpStore %834 %833
+        %835 = OpLoad %v4float %v5
+        %836 = OpVectorShuffle %v2float %835 %835 3 3
+        %838 = OpFMul %v2float %836 %837
+        %839 = OpFAdd %v2float %838 %837
+        %840 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %841 = OpCompositeExtract %float %839 0
+               OpStore %840 %841
+        %842 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %843 = OpCompositeExtract %float %839 1
+               OpStore %842 %843
+        %844 = OpAccessChain %_ptr_Function_float %v6 %uint_3
+        %845 = OpLoad %float %844
+        %846 = OpFMul %float %845 %float_0_5
+        %847 = OpFAdd %float %846 %float_0_5
+        %848 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+               OpStore %848 %847
+        %849 = OpAccessChain %_ptr_Function_float %v7 %uint_3
+        %850 = OpLoad %float %849
+        %851 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+               OpStore %851 %850
+        %853 = OpLoad %51 %s8
+        %854 = OpLoad %v4float %r2
+        %855 = OpVectorShuffle %v2float %854 %854 0 1
+        %856 = OpAccessChain %_ptr_Function_float %r2 %uint_3
+        %857 = OpLoad %float %856
+        %858 = OpImageSampleExplicitLod %v4float %853 %855 Lod %857
+               OpStore %r3 %858
+        %859 = OpLoad %v4float %r2
+        %860 = OpVectorShuffle %v2float %859 %859 0 1
+        %861 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_3
+        %862 = OpLoad %v4float %861
+        %863 = OpVectorShuffle %v2float %862 %862 0 1
+        %864 = OpFAdd %v2float %860 %863
+        %865 = OpAccessChain %_ptr_Function_float %r4 %uint_0
+        %866 = OpCompositeExtract %float %864 0
+               OpStore %865 %866
+        %867 = OpAccessChain %_ptr_Function_float %r4 %uint_1
+        %868 = OpCompositeExtract %float %864 1
+               OpStore %867 %868
+        %869 = OpLoad %v4float %r2
+        %870 = OpVectorShuffle %v2float %869 %869 2 3
+        %871 = OpAccessChain %_ptr_Function_float %r4 %uint_2
+        %872 = OpCompositeExtract %float %870 0
+               OpStore %871 %872
+        %873 = OpAccessChain %_ptr_Function_float %r4 %uint_3
+        %874 = OpCompositeExtract %float %870 1
+               OpStore %873 %874
+        %875 = OpLoad %51 %s8
+        %876 = OpLoad %v4float %r4
+        %877 = OpVectorShuffle %v2float %876 %876 0 1
+        %878 = OpAccessChain %_ptr_Function_float %r4 %uint_3
+        %879 = OpLoad %float %878
+        %880 = OpImageSampleExplicitLod %v4float %875 %877 Lod %879
+               OpStore %r5 %880
+        %881 = OpAccessChain %_ptr_Function_float %r3 %uint_0
+        %882 = OpLoad %float %881
+        %883 = OpAccessChain %_ptr_Function_float %r5 %uint_0
+        %884 = OpLoad %float %883
+        %885 = OpFAdd %float %882 %884
+        %886 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %886 %885
+        %887 = OpLoad %v4float %r2
+        %888 = OpVectorShuffle %v2float %887 %887 0 1
+        %889 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_5
+        %890 = OpLoad %v4float %889
+        %891 = OpVectorShuffle %v2float %890 %890 0 1
+        %892 = OpFAdd %v2float %888 %891
+        %893 = OpAccessChain %_ptr_Function_float %r4 %uint_0
+        %894 = OpCompositeExtract %float %892 0
+               OpStore %893 %894
+        %895 = OpAccessChain %_ptr_Function_float %r4 %uint_1
+        %896 = OpCompositeExtract %float %892 1
+               OpStore %895 %896
+        %897 = OpLoad %51 %s8
+        %898 = OpLoad %v4float %r4
+        %899 = OpVectorShuffle %v2float %898 %898 0 1
+        %900 = OpAccessChain %_ptr_Function_float %r4 %uint_3
+        %901 = OpLoad %float %900
+        %902 = OpImageSampleExplicitLod %v4float %897 %899 Lod %901
+               OpStore %r3 %902
+        %903 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %904 = OpLoad %float %903
+        %905 = OpAccessChain %_ptr_Function_float %r3 %uint_0
+        %906 = OpLoad %float %905
+        %907 = OpFAdd %float %904 %906
+        %908 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %908 %907
+        %909 = OpLoad %v4float %r2
+        %910 = OpVectorShuffle %v2float %909 %909 0 1
+        %911 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_7
+        %912 = OpLoad %v4float %911
+        %913 = OpVectorShuffle %v2float %912 %912 0 1
+        %914 = OpFAdd %v2float %910 %913
+        %915 = OpAccessChain %_ptr_Function_float %r4 %uint_0
+        %916 = OpCompositeExtract %float %914 0
+               OpStore %915 %916
+        %917 = OpAccessChain %_ptr_Function_float %r4 %uint_1
+        %918 = OpCompositeExtract %float %914 1
+               OpStore %917 %918
+        %919 = OpLoad %51 %s8
+        %920 = OpLoad %v4float %r4
+        %921 = OpVectorShuffle %v2float %920 %920 0 1
+        %922 = OpAccessChain %_ptr_Function_float %r4 %uint_3
+        %923 = OpLoad %float %922
+        %924 = OpImageSampleExplicitLod %v4float %919 %921 Lod %923
+               OpStore %r3 %924
+        %925 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %926 = OpLoad %float %925
+        %927 = OpAccessChain %_ptr_Function_float %r3 %uint_0
+        %928 = OpLoad %float %927
+        %929 = OpFAdd %float %926 %928
+        %930 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %930 %929
+        %931 = OpLoad %v4float %r2
+        %932 = OpVectorShuffle %v2float %931 %931 0 1
+        %933 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_9
+        %934 = OpLoad %v4float %933
+        %935 = OpVectorShuffle %v2float %934 %934 0 1
+        %936 = OpFAdd %v2float %932 %935
+        %937 = OpAccessChain %_ptr_Function_float %r4 %uint_0
+        %938 = OpCompositeExtract %float %936 0
+               OpStore %937 %938
+        %939 = OpAccessChain %_ptr_Function_float %r4 %uint_1
+        %940 = OpCompositeExtract %float %936 1
+               OpStore %939 %940
+        %941 = OpLoad %51 %s8
+        %942 = OpLoad %v4float %r4
+        %943 = OpVectorShuffle %v2float %942 %942 0 1
+        %944 = OpAccessChain %_ptr_Function_float %r4 %uint_3
+        %945 = OpLoad %float %944
+        %946 = OpImageSampleExplicitLod %v4float %941 %943 Lod %945
+               OpStore %r2 %946
+        %947 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %948 = OpLoad %float %947
+        %949 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %950 = OpLoad %float %949
+        %951 = OpFAdd %float %948 %950
+        %952 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+               OpStore %952 %951
+        %953 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %954 = OpLoad %float %953
+        %955 = OpExtInst %float %1 FAbs %954
+        %956 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+        %957 = OpLoad %float %956
+        %958 = OpExtInst %float %1 FAbs %957
+        %959 = OpExtInst %float %1 FMax %955 %958
+        %960 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+               OpStore %960 %959
+        %961 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %962 = OpLoad %float %961
+        %964 = OpFMul %float %962 %float_n11_1111107
+        %966 = OpFAdd %float %964 %float_11
+        %967 = OpExtInst %float %1 FClamp %966 %float_0 %float_1
+        %968 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+               OpStore %968 %967
+        %969 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+        %970 = OpLoad %float %969
+        %971 = OpFMul %float %970 %float_0_200000003
+        %973 = OpFAdd %float %971 %float_n1
+        %974 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+               OpStore %974 %973
+        %975 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+        %976 = OpLoad %float %975
+        %977 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+        %978 = OpLoad %float %977
+        %979 = OpFMul %float %976 %978
+        %980 = OpFAdd %float %979 %float_1
+        %981 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+               OpStore %981 %980
+               OpBranch %688
+        %688 = OpLabel
+               OpBranch %534
+        %534 = OpLabel
+               OpBranch %251
+        %251 = OpLabel
+        %982 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+        %983 = OpLoad %float %982
+        %985 = OpFMul %float %983 %float_0_300000012
+        %987 = OpFAdd %float %985 %float_0_699999988
+        %988 = OpAccessChain %_ptr_Function_float %r1 %uint_1
+               OpStore %988 %987
+        %989 = OpLoad %v4float %r0
+        %990 = OpVectorShuffle %v3float %989 %989 3 3 3
+        %991 = OpLoad %v4float %v1
+        %992 = OpVectorShuffle %v3float %991 %991 0 1 2
+        %993 = OpFMul %v3float %990 %992
+        %994 = OpAccessChain %_ptr_Function_float %r2 %uint_0
+        %995 = OpCompositeExtract %float %993 0
+               OpStore %994 %995
+        %996 = OpAccessChain %_ptr_Function_float %r2 %uint_1
+        %997 = OpCompositeExtract %float %993 1
+               OpStore %996 %997
+        %998 = OpAccessChain %_ptr_Function_float %r2 %uint_2
+        %999 = OpCompositeExtract %float %993 2
+               OpStore %998 %999
+       %1000 = OpLoad %v4float %r1
+       %1001 = OpVectorShuffle %v3float %1000 %1000 0 0 0
+       %1002 = OpLoad %v4float %r2
+       %1003 = OpVectorShuffle %v3float %1002 %1002 0 1 2
+       %1004 = OpFMul %v3float %1001 %1003
+       %1005 = OpAccessChain %_ptr_Function_float %r1 %uint_0
+       %1006 = OpCompositeExtract %float %1004 0
+               OpStore %1005 %1006
+       %1007 = OpAccessChain %_ptr_Function_float %r1 %uint_2
+       %1008 = OpCompositeExtract %float %1004 1
+               OpStore %1007 %1008
+       %1009 = OpAccessChain %_ptr_Function_float %r1 %uint_3
+       %1010 = OpCompositeExtract %float %1004 2
+               OpStore %1009 %1010
+       %1011 = OpLoad %v4float %r0
+       %1012 = OpVectorShuffle %v3float %1011 %1011 0 1 2
+       %1013 = OpLoad %v4float %r1
+       %1014 = OpVectorShuffle %v3float %1013 %1013 1 1 1
+       %1015 = OpFMul %v3float %1012 %1014
+       %1016 = OpLoad %v4float %r1
+       %1017 = OpVectorShuffle %v3float %1016 %1016 0 2 3
+       %1018 = OpFAdd %v3float %1015 %1017
+       %1019 = OpAccessChain %_ptr_Function_float %r0 %uint_0
+       %1020 = OpCompositeExtract %float %1018 0
+               OpStore %1019 %1020
+       %1021 = OpAccessChain %_ptr_Function_float %r0 %uint_1
+       %1022 = OpCompositeExtract %float %1018 1
+               OpStore %1021 %1022
+       %1023 = OpAccessChain %_ptr_Function_float %r0 %uint_2
+       %1024 = OpCompositeExtract %float %1018 2
+               OpStore %1023 %1024
+       %1025 = OpLoad %v4float %r0
+       %1026 = OpVectorShuffle %v3float %1025 %1025 0 1 2
+       %1028 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_2
+       %1029 = OpLoad %v4float %1028
+       %1030 = OpVectorShuffle %v3float %1029 %1029 0 1 2
+       %1031 = OpFNegate %v3float %1030
+       %1032 = OpFAdd %v3float %1026 %1031
+       %1033 = OpAccessChain %_ptr_Function_float %r0 %uint_0
+       %1034 = OpCompositeExtract %float %1032 0
+               OpStore %1033 %1034
+       %1035 = OpAccessChain %_ptr_Function_float %r0 %uint_1
+       %1036 = OpCompositeExtract %float %1032 1
+               OpStore %1035 %1036
+       %1037 = OpAccessChain %_ptr_Function_float %r0 %uint_2
+       %1038 = OpCompositeExtract %float %1032 2
+               OpStore %1037 %1038
+       %1039 = OpLoad %v4float %v8
+       %1040 = OpVectorShuffle %v3float %1039 %1039 0 0 0
+       %1041 = OpLoad %v4float %r0
+       %1042 = OpVectorShuffle %v3float %1041 %1041 0 1 2
+       %1043 = OpFMul %v3float %1040 %1042
+       %1044 = OpAccessChain %_ptr_Uniform_v4float %regs %int_0 %int_2
+       %1045 = OpLoad %v4float %1044
+       %1046 = OpVectorShuffle %v3float %1045 %1045 0 1 2
+       %1047 = OpFAdd %v3float %1043 %1046
+       %1049 = OpAccessChain %_ptr_Output_float %oC0 %uint_0
+       %1050 = OpCompositeExtract %float %1047 0
+               OpStore %1049 %1050
+       %1051 = OpAccessChain %_ptr_Output_float %oC0 %uint_1
+       %1052 = OpCompositeExtract %float %1047 1
+               OpStore %1051 %1052
+       %1053 = OpAccessChain %_ptr_Output_float %oC0 %uint_2
+       %1054 = OpCompositeExtract %float %1047 2
+               OpStore %1053 %1054
+       %1055 = OpAccessChain %_ptr_Output_float %oC0 %uint_3
+               OpStore %1055 %float_1
+       %1057 = OpAccessChain %_ptr_Uniform_float %regs %int_1 %uint_0
+       %1058 = OpLoad %float %1057
+       %1059 = OpFOrdGreaterThan %bool %1058 %float_0
+               OpSelectionMerge %1061 None
+               OpBranchConditional %1059 %1060 %1061
+       %1060 = OpLabel
+       %1062 = OpAccessChain %_ptr_Output_float %oC0 %uint_3
+       %1063 = OpLoad %float %1062
+       %1064 = OpAccessChain %_ptr_Uniform_float %regs %int_1 %uint_0
+       %1065 = OpLoad %float %1064
+       %1066 = OpFOrdLessThan %bool %1063 %1065
+               OpBranch %1061
+       %1061 = OpLabel
+       %1067 = OpPhi %bool %1059 %251 %1066 %1060
+               OpSelectionMerge %1069 None
+               OpBranchConditional %1067 %1068 %1069
+       %1068 = OpLabel
+               OpKill
+       %1069 = OpLabel
+               OpReturn
+               OpFunctionEnd
